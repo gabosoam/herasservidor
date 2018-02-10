@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__settings__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__settings__ = __webpack_require__(363);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -44,7 +44,7 @@ var SettingsPageModule = (function () {
 
 /***/ }),
 
-/***/ 362:
+/***/ 363:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -123,6 +123,13 @@ var SettingsPage = (function () {
         });
         addModal.present();
     };
+    SettingsPage.prototype.cargarCero = function () {
+        var _this = this;
+        var seq = this.items.cargarEnCero();
+        seq.subscribe(function (res) {
+            _this.productos = res;
+        });
+    };
     SettingsPage.prototype.buscarNombre = function (nombre) {
         var _this = this;
         this.buscador = "nombre";
@@ -164,16 +171,22 @@ var SettingsPage = (function () {
             if (producto) {
                 var seq = _this.items.modificarProducto(producto.id, producto);
                 seq.subscribe(function (res) {
-                    if (_this.buscador == "nombre") {
-                        _this.saludar();
-                    }
-                    else if (_this.buscador == "codigo") {
-                        _this.buscarCodigo();
+                    console.log('aqui no hay nada');
+                    console.log(res.codigo);
+                    if (res) {
+                        _this.buscarCodigo2(res.codigo);
                     }
                 });
             }
         });
         addModal.present();
+    };
+    SettingsPage.prototype.todosProductos = function () {
+        var _this = this;
+        var seq = this.items.todosProductos();
+        seq.subscribe(function (res) {
+            _this.productos = res;
+        });
     };
     SettingsPage.prototype.listarPrecios = function (producto) {
         var _this = this;
@@ -183,12 +196,6 @@ var SettingsPage = (function () {
             if (producto) {
                 var seq = _this.items.modificarProducto(producto.id, producto);
                 seq.subscribe(function (res) {
-                    if (_this.buscador == "nombre") {
-                        _this.saludar();
-                    }
-                    else if (_this.buscador == "codigo") {
-                        _this.buscarCodigo();
-                    }
                 });
             }
         });
@@ -247,7 +254,7 @@ var SettingsPage = (function () {
     };
     SettingsPage = SettingsPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-settings',template:/*ion-inline-start:"C:\Proyectos\inventarioclient\src\pages\settings\settings.html"*/'<ion-content class="animated fadeIn login auth-page">\n\n  <div class="w3-container w3-blue">\n\n    <h2>Inicio</h2>\n\n  </div>\n\n\n\n\n\n\n\n\n\n  <div class="w3-container w3-light-gray">\n\n    <div class="w3-row">\n\n      <div class="w3-col w3-padding s12 m4 l4">\n\n        <form id="container" [formGroup]="formCodigo" (ngSubmit)="buscarCodigo()">\n\n\n\n          <label class="w3-text-blue">\n\n            <b>Buscar por código</b>\n\n          </label>\n\n          <input class="w3-input w3-border w3-round" type="text" [(ngModel)]="codigo" autofocus formControlName="name" placeholder="Buscar por código">\n\n\n\n\n\n        </form>\n\n      </div>\n\n      <div class="w3-col w3-padding s12 m4 l4">\n\n        <form style="max-width: 100" id="container" *ngIf="form" [formGroup]="form" (ngSubmit)="saludar()">\n\n\n\n          <label class="w3-text-blue">\n\n            <b>Buscar por código</b>\n\n          </label>\n\n          <input class="w3-input w3-border w3-round" type="text" autofocus formControlName="name" placeholder="Buscar por nombre">\n\n        </form>\n\n      </div>\n\n      <div class="w3-col w3-padding s12 m4 l4">\n\n          <button ion-button (click)="crearProducto()">Crear un producto</button>\n\n        </div>\n\n    </div>\n\n  </div>\n\n\n\n<div class="">\n\n    <table class="w3-table w3-striped w3-bordered  w3-round">\n\n\n\n        <tr class="w3-dark-gray">\n\n    \n\n          <th>Código</th>\n\n          <th>Producto</th>\n\n          <th>Stock</th>\n\n    \n\n          <th>Precio</th>\n\n    \n\n          <th>Mínimo</th>\n\n          <th>Acciones</th>\n\n        </tr>\n\n        <tr *ngFor="let producto of productos">\n\n          <td overflow-scroll=" true ">{{producto.codigo}}</td>\n\n          <td>{{producto.nombre}}</td>\n\n          <td>\n\n              {{producto.stock}} ({{producto.unidad.nombre}})\n\n          </td>\n\n    \n\n          <td>${{producto.precio}}</td>\n\n    \n\n          <td>{{producto.minimo}}</td>\n\n          <td>\n\n            <button ion-button round icon-only small (click)="agregarStock(producto)">\n\n              <ion-icon name="md-add"></ion-icon>\n\n            </button>\n\n            <button ion-button small icon-only color="secondary" (click)="modificarItem(producto)" round>\n\n              <ion-icon name="md-create"></ion-icon>\n\n            </button>\n\n            <button ion-button small icon-only color="light" (click)="listarPrecios(producto)" round>\n\n              <ion-icon name="logo-usd"></ion-icon>\n\n            </button>\n\n            <button ion-button small icon-only color="danger" (click)="desactivarItem(producto)" round>\n\n              <ion-icon name="md-trash"></ion-icon>\n\n            </button>\n\n          </td>\n\n        </tr>\n\n    \n\n    \n\n      </table>\n\n</div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\inventarioclient\src\pages\settings\settings.html"*/
+            selector: 'page-settings',template:/*ion-inline-start:"C:\Proyectos\inventarioclient\src\pages\settings\settings.html"*/'<ion-content class="animated fadeIn login auth-page">\n\n  <div class="w3-container w3-blue">\n\n    <h2>Inicio</h2>\n\n  </div>\n\n\n\n\n\n\n\n\n\n  <div class="w3-container w3-light-gray">\n\n    <div class="w3-row">\n\n      <div class="w3-col w3-padding s12 m4 l4">\n\n        <form id="container" [formGroup]="formCodigo" (ngSubmit)="buscarCodigo()">\n\n\n\n          <label class="w3-text-blue">\n\n            <b>Buscar por código</b>\n\n          </label>\n\n          <input class="w3-input w3-border w3-round w3-large" type="text" [(ngModel)]="codigo" autofocus formControlName="name" placeholder="Buscar por código">\n\n\n\n\n\n        </form>\n\n      </div>\n\n      <div class="w3-col w3-padding s12 m4 l4">\n\n        <form style="max-width: 100" id="container" *ngIf="form" [formGroup]="form" (ngSubmit)="saludar()">\n\n\n\n          <label class="w3-text-blue">\n\n            <b>Buscar por código</b>\n\n          </label>\n\n          <input class="w3-input w3-border w3-round w3-large" type="text" autofocus formControlName="name" placeholder="Buscar por nombre">\n\n        </form>\n\n      </div>\n\n      <div class="w3-col w3-padding s12 m4 l4">\n\n        <button class="" ion-button (click)="crearProducto()">Crear un producto</button>\n\n        <button class="" ion-button (click)="todosProductos()">Todos los productos</button>\n\n        <!-- <button class="" ion-button color="danger" (click)="cargarCero()">Por acabarse</button> -->\n\n      </div>\n\n      \n\n    </div>\n\n  </div>\n\n\n\n  <div class="">\n\n    <table class="w3-table w3-striped w3-bordered  w3-round w3-large">\n\n\n\n      <tr class="w3-dark-gray">\n\n\n\n        <th>Código</th>\n\n        <th>Producto</th>\n\n        <th>Stock</th>\n\n\n\n        <th>Precio</th>\n\n\n\n        <th>Mínimo</th>\n\n        <th>Acciones</th>\n\n      </tr>\n\n      <tr *ngFor="let producto of productos">\n\n        <td overflow-scroll=" true ">{{producto.codigo}}</td>\n\n        <td>{{producto.nombre}}</td>\n\n        <td>\n\n          {{producto.stock}} ({{producto.unidad.nombre}})\n\n        </td>\n\n\n\n        <td>${{producto.precio}}</td>\n\n\n\n        <td>{{producto.minimo}}</td>\n\n        <td>\n\n          <button ion-button round icon-only small (click)="agregarStock(producto)">\n\n            <ion-icon name="md-add"></ion-icon>\n\n          </button>\n\n          <button ion-button small icon-only color="secondary" (click)="modificarItem(producto)" round>\n\n            <ion-icon name="md-create"></ion-icon>\n\n          </button>\n\n          <button ion-button small icon-only color="light" (click)="listarPrecios(producto)" round>\n\n            <ion-icon name="logo-usd"></ion-icon>\n\n          </button>\n\n          <button ion-button small icon-only color="danger" (click)="desactivarItem(producto)" round>\n\n            <ion-icon name="md-trash"></ion-icon>\n\n          </button>\n\n        </td>\n\n      </tr>\n\n\n\n\n\n    </table>\n\n  </div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\inventarioclient\src\pages\settings\settings.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_4__providers_providers__["c" /* Settings */],

@@ -24,6 +24,19 @@ module.exports = {
           
         });
       },
+
+
+      acabados(req, res){
+
+        Producto.query('SELECT * from producto where minimo<=stock', function(err, data) {
+          if (err) {
+            
+          }else{
+            return res.json(data);
+          }
+          
+        })
+      }
 	
 };
 

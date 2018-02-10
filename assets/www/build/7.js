@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrecioPageModule", function() { return PrecioPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__precio__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__precio__ = __webpack_require__(361);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var PrecioPageModule = (function () {
 
 /***/ }),
 
-/***/ 360:
+/***/ 361:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -132,37 +132,47 @@ var PrecioPage = (function () {
         else {
             switch (this.accion) {
                 case 'editar':
-                    var seq = this.service.modificarPrecio(this.formCodigo.value);
-                    seq.subscribe(function (res) {
-                        _this.obtenerPrecios();
-                        _this.unidad = "";
-                        _this.precio = "";
-                        _this.tamano = "";
-                        _this.id = "";
-                        _this.nuevo();
-                    });
+                    if (this.formCodigo.value.tamano <= 0 || this.formCodigo.value.precio <= 0) {
+                        alert("No se puede ingresar valores igual o menores a cero");
+                    }
+                    else {
+                        var seq = this.service.modificarPrecio(this.formCodigo.value);
+                        seq.subscribe(function (res) {
+                            _this.obtenerPrecios();
+                            _this.unidad = "";
+                            _this.precio = "";
+                            _this.tamano = "";
+                            _this.id = "";
+                            _this.nuevo();
+                        });
+                    }
                     break;
                 case 'nuevo':
-                    var seq2 = this.service.agregarPrecio({
-                        producto: this.formCodigo.value.producto,
-                        unidad: this.formCodigo.value.unidad,
-                        tamano: this.formCodigo.value.tamano,
-                        precio: this.formCodigo.value.precio,
-                    });
-                    seq2.subscribe(function (res) {
-                        _this.obtenerPrecios();
-                        _this.unidad = "";
-                        _this.precio = "";
-                        _this.tamano = "";
-                        _this.id = "";
-                    });
+                    if (this.formCodigo.value.tamano <= 0 || this.formCodigo.value.precio <= 0) {
+                        alert("No se puede ingresar valores igual o menores a cero");
+                    }
+                    else {
+                        var seq2 = this.service.agregarPrecio({
+                            producto: this.formCodigo.value.producto,
+                            unidad: this.formCodigo.value.unidad,
+                            tamano: this.formCodigo.value.tamano,
+                            precio: this.formCodigo.value.precio,
+                        });
+                        seq2.subscribe(function (res) {
+                            _this.obtenerPrecios();
+                            _this.unidad = "";
+                            _this.precio = "";
+                            _this.tamano = "";
+                            _this.id = "";
+                        });
+                    }
                     break;
             }
         }
     };
     PrecioPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-precio',template:/*ion-inline-start:"C:\Proyectos\inventarioclient\src\pages\precio\precio.html"*/'<!--\n\n  Generated template for the PrecioPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>LISTA DE PRECIOS - {{prod.unidad.nombre}} {{prod.nombre}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <form id="container"  [formGroup]="formCodigo" (ngSubmit)="gestionar()" >\n\n\n\n    <ion-list>\n\n\n\n        <ion-input [(ngModel)]="id" type="hidden" value="" formControlName="id"></ion-input>\n\n\n\n        <ion-item>\n\n            <ion-label stacked>Unidad</ion-label>\n\n            <ion-select [(ngModel)]="unidad" formControlName="unidad">\n\n                <ion-option disabled  value="">Seleccionar una unidad</ion-option>\n\n              <ion-option *ngFor="let unidad of unidades" value={{unidad.id}}>{{unidad.nombre}}</ion-option>\n\n\n\n            </ion-select>\n\n          </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label stacked>Precio</ion-label>\n\n        <ion-input [(ngModel)]="precio" type="number" value="" formControlName="precio"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label stacked>Tamaño</ion-label>\n\n        <ion-input [(ngModel)]="tamano" type="number" value="" formControlName="tamano"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n          <button ion-button>Guardar</button>\n\n      </ion-item>\n\n\n\n\n\n\n\n    </ion-list>\n\n  </form>\n\n  <table style="width: 100%; padding: 10px; border-radius: 25px" border="1">\n\n\n\n    <tr>\n\n\n\n      <th style="padding: 5px; text-align: center">Unidad</th>\n\n      <th style="padding: 5px; text-align: center">Precio</th>\n\n      <th style="padding: 5px; text-align: center">Tamaño</th>\n\n\n\n\n\n\n\n      <th style="padding: 5px; text-align: center"></th>\n\n    </tr>\n\n    <tr *ngFor="let item of items">\n\n      <td style="padding: 5px; text-align: center">{{item.unidad.nombre}}</td>\n\n      <td style="padding: 5px; text-align: center">${{item.precio}}</td>\n\n      <td style="padding: 5px; text-align: center">{{item.tamano}}</td>\n\n\n\n\n\n\n\n      <td style="padding: 5px; text-align: center">\n\n        <button ion-button round icon-only small color="secondary" (click)="editar(item)">\n\n          <ion-icon name="md-create"></ion-icon>\n\n        </button>\n\n\n\n        <button ion-button round icon-only small color="danger" (click)="eliminar(item)">\n\n            <ion-icon name="md-trash"></ion-icon>\n\n          </button>\n\n\n\n      </td>\n\n    </tr>\n\n\n\n\n\n  </table>\n\n\n\n  <ion-fab top right edge (click)="nuevo()">\n\n      <button  ion-fab mini><ion-icon name="add" (click)="nuevo()"></ion-icon></button>\n\n    \n\n    </ion-fab>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\inventarioclient\src\pages\precio\precio.html"*/,
+            selector: 'page-precio',template:/*ion-inline-start:"C:\Proyectos\inventarioclient\src\pages\precio\precio.html"*/'<!--\n\n  Generated template for the PrecioPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>LISTA DE PRECIOS - {{prod.unidad.nombre}} {{prod.nombre}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <form id="container"  [formGroup]="formCodigo" (ngSubmit)="gestionar()" >\n\n\n\n    <ion-list>\n\n\n\n        <ion-input [(ngModel)]="id" type="hidden" value="" formControlName="id"></ion-input>\n\n\n\n        <ion-item>\n\n            <ion-label stacked>Unidad</ion-label>\n\n            <ion-select [(ngModel)]="unidad" formControlName="unidad">\n\n                <ion-option disabled  value="">Seleccionar una unidad</ion-option>\n\n              <ion-option *ngFor="let unidad of unidades" value={{unidad.id}}>{{unidad.nombre}}</ion-option>\n\n\n\n            </ion-select>\n\n          </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label stacked>Precio</ion-label>\n\n        <ion-input [(ngModel)]="precio" type="number"  value="" formControlName="precio"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label stacked>Tamaño</ion-label>\n\n        <ion-input [(ngModel)]="tamano" type="number" value="" formControlName="tamano"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n          <button ion-button>Guardar</button>\n\n      </ion-item>\n\n\n\n\n\n\n\n    </ion-list>\n\n  </form>\n\n  <table style="width: 100%; padding: 10px; border-radius: 25px" border="1">\n\n\n\n    <tr>\n\n\n\n      <th style="padding: 5px; text-align: center">Unidad</th>\n\n      <th style="padding: 5px; text-align: center">Precio</th>\n\n      <th style="padding: 5px; text-align: center">Tamaño</th>\n\n\n\n\n\n\n\n      <th style="padding: 5px; text-align: center"></th>\n\n    </tr>\n\n    <tr *ngFor="let item of items">\n\n      <td style="padding: 5px; text-align: center">{{item.unidad.nombre}}</td>\n\n      <td style="padding: 5px; text-align: center">${{item.precio}}</td>\n\n      <td style="padding: 5px; text-align: center">{{item.tamano}}</td>\n\n\n\n\n\n\n\n      <td style="padding: 5px; text-align: center">\n\n        <button ion-button round icon-only small color="secondary" (click)="editar(item)">\n\n          <ion-icon name="md-create"></ion-icon>\n\n        </button>\n\n\n\n        <button ion-button round icon-only small color="danger" (click)="eliminar(item)">\n\n            <ion-icon name="md-trash"></ion-icon>\n\n          </button>\n\n\n\n      </td>\n\n    </tr>\n\n\n\n\n\n  </table>\n\n\n\n  <ion-fab top right edge (click)="nuevo()">\n\n      <button  ion-fab mini><ion-icon name="add" (click)="nuevo()"></ion-icon></button>\n\n    \n\n    </ion-fab>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\inventarioclient\src\pages\precio\precio.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],

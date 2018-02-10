@@ -19,13 +19,15 @@ module.exports = {
 
     precio : { type: 'float' },
     
-    unidad: {type: 'string'}
+    unidad: {type: 'string'},
+
+    reducir:{type: 'float'}
   },
 
   afterCreate: function (values, cb) {
    
 
-    Producto.query('UPDATE producto SET producto.stock=producto.stock-? WHERE producto.id=?',[values.cantidad, values.producto] , function(err, rawResult) {
+    Producto.query('UPDATE producto SET producto.stock=producto.stock-? WHERE producto.id=?',[values.reducir, values.producto] , function(err, rawResult) {
       if (err) {
         cb();
       } else {
@@ -39,7 +41,7 @@ module.exports = {
   
   console.log(values)
 
-    Producto.query('UPDATE producto SET producto.stock=producto.stock+? WHERE producto.id=?',[values[0].cantidad, values[0].producto] , function(err, rawResult) {
+    Producto.query('UPDATE producto SET producto.stock=producto.stock+? WHERE producto.id=?',[values[0].reducir, values[0].producto] , function(err, rawResult) {
       if (err) {
         console.log(err)
         cb();

@@ -1,4 +1,4 @@
-webpackJsonp([18],{
+webpackJsonp([19],{
 
 /***/ 131:
 /***/ (function(module, exports) {
@@ -23,22 +23,26 @@ webpackEmptyAsyncContext.id = 131;
 var map = {
 	"../pages/buscarproducto/buscarproducto.module": [
 		332,
-		17
+		18
 	],
 	"../pages/cantidad/cantidad.module": [
 		333,
-		16
+		17
 	],
 	"../pages/cards/cards.module": [
+		334,
+		16
+	],
+	"../pages/content/content.module": [
 		335,
 		15
 	],
-	"../pages/content/content.module": [
-		334,
-		14
-	],
 	"../pages/factura-cobrar/factura-cobrar.module": [
 		336,
+		14
+	],
+	"../pages/history/history.module": [
+		339,
 		13
 	],
 	"../pages/item-create/item-create.module": [
@@ -50,15 +54,15 @@ var map = {
 		11
 	],
 	"../pages/list-master/list-master.module": [
-		339,
+		340,
 		10
 	],
 	"../pages/login/login.module": [
-		340,
+		341,
 		9
 	],
 	"../pages/menu/menu.module": [
-		341,
+		350,
 		8
 	],
 	"../pages/precio/precio.module": [
@@ -82,15 +86,15 @@ var map = {
 		3
 	],
 	"../pages/tabs/tabs.module": [
-		347,
+		349,
 		2
 	],
 	"../pages/tutorial/tutorial.module": [
-		348,
+		347,
 		1
 	],
 	"../pages/welcome/welcome.module": [
-		349,
+		348,
 		0
 	]
 };
@@ -216,22 +220,20 @@ var Items = (function () {
         var seq = this.api.get('producto?where={"nombre":{"contains":"' + nombre + '"},"estado":{"contains":"1"}}').share();
         return seq;
     };
+    Items.prototype.cargarEnCero = function () {
+        var seq = this.api.get('producto/acabados').share();
+        return seq;
+    };
     Items.prototype.buscarProductoCodigo = function (codigo) {
         var seq = this.api.get('producto?codigo=' + codigo + '&estado=1').share();
         return seq;
     };
+    Items.prototype.todosProductos = function () {
+        var seq = this.api.get('producto').share();
+        return seq;
+    };
     Items.prototype.obtenerMarcas = function () {
-        var seq = this.api.get('marca?sort=nombre&limit=300').share();
-        seq.subscribe(function (res) {
-            // If the API returned a successful response, mark the user as logged in
-            if (res.status == 'success') {
-                console.log(res);
-            }
-            else {
-            }
-        }, function (err) {
-            console.error('ERROR', err);
-        });
+        var seq = this.api.get('marca?').share();
         return seq;
     };
     Items.prototype.obtenerPrecio = function (precio) {
@@ -253,7 +255,7 @@ var Items = (function () {
         return seq;
     };
     Items.prototype.obtenerCategorias = function () {
-        var seq = this.api.get('categoria?sort=nombre&limit=100').share();
+        var seq = this.api.get('categoria').share();
         return seq;
     };
     Items.prototype.obtenerUnidades = function () {
@@ -513,22 +515,23 @@ var AppModule = (function () {
                     links: [
                         { loadChildren: '../pages/buscarproducto/buscarproducto.module#BuscarproductoPageModule', name: 'BuscarproductoPage', segment: 'buscarproducto', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cantidad/cantidad.module#CantidadPageModule', name: 'CantidadPage', segment: 'cantidad', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/content/content.module#ContentPageModule', name: 'ContentPage', segment: 'content', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cards/cards.module#CardsPageModule', name: 'CardsPage', segment: 'cards', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/content/content.module#ContentPageModule', name: 'ContentPage', segment: 'content', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/factura-cobrar/factura-cobrar.module#FacturaCobrarPageModule', name: 'FacturaCobrarPage', segment: 'factura-cobrar', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-create/item-create.module#ItemCreatePageModule', name: 'ItemCreatePage', segment: 'item-create', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-detail/item-detail.module#ItemDetailPageModule', name: 'ItemDetailPage', segment: 'item-detail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/precio/precio.module#PrecioPageModule', name: 'PrecioPage', segment: 'precio', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'SearchPage', segment: 'search', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/stock/stock.module#StockPageModule', name: 'StockPage', segment: 'stock', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["a" /* IonicStorageModule */].forRoot()
@@ -928,9 +931,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Api is a generic REST Api handler. Set your API url first.
  */
 var Api = (function () {
+    //url: string = 'http://localhost:1337';
     function Api(http) {
         this.http = http;
-        this.url = 'http://192.168.0.105:1337';
+        this.url = 'http://192.168.1.35:1337';
     }
     Api.prototype.get = function (endpoint, params, reqOpts) {
         if (!reqOpts) {
