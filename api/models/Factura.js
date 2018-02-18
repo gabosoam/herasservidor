@@ -8,11 +8,13 @@
 module.exports = {
 
   attributes: {
-    id : { type: 'integer', primaryKey: true, autoIncrement: true },
+    id: { type: 'integer', primaryKey: true, autoIncrement: true },
 
-    cliente: {model: 'cliente', defaultsTo: 1},
+    cliente: { model: 'cliente', defaultsTo: 1 },
 
-    detalles: {collection: 'detalle', via: 'factura'}
+    detalles: { collection: 'detalle', via: 'factura' },
+
+    usuario: { type: 'string' }
   }
 };
 
