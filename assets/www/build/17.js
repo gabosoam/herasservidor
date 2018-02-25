@@ -1,14 +1,15 @@
 webpackJsonp([17],{
 
-/***/ 333:
+/***/ 334:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CantidadPageModule", function() { return CantidadPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CardsPageModule", function() { return CardsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cantidad__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cards__ = __webpack_require__(354);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,35 +19,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CantidadPageModule = (function () {
-    function CantidadPageModule() {
+
+var CardsPageModule = (function () {
+    function CardsPageModule() {
     }
-    CantidadPageModule = __decorate([
+    CardsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__cantidad__["a" /* CantidadPage */],
+                __WEBPACK_IMPORTED_MODULE_3__cards__["a" /* CardsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__cantidad__["a" /* CantidadPage */]),
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__cards__["a" /* CardsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_3__cards__["a" /* CardsPage */]
+            ]
         })
-    ], CantidadPageModule);
-    return CantidadPageModule;
+    ], CardsPageModule);
+    return CardsPageModule;
 }());
 
-//# sourceMappingURL=cantidad.module.js.map
+//# sourceMappingURL=cards.module.js.map
 
 /***/ }),
 
-/***/ 352:
+/***/ 354:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CantidadPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_providers__ = __webpack_require__(43);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,71 +62,49 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-/**
- * Generated class for the CantidadPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var CantidadPage = (function () {
-    function CantidadPage(navCtrl, navParams, formBuilder, service, viewCtrl) {
+var CardsPage = (function () {
+    function CardsPage(navCtrl) {
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.formBuilder = formBuilder;
-        this.service = service;
-        this.viewCtrl = viewCtrl;
-        this.prod = navParams.get('producto');
-        this.formCodigo = formBuilder.group({
-            unidad: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required],
-            cantidad: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required]
-        });
-        this.obtenerPrecios();
+        this.cardItems = [
+            {
+                user: {
+                    avatar: 'assets/img/marty-avatar.png',
+                    name: 'Marty McFly'
+                },
+                date: 'November 5, 1955',
+                image: 'assets/img/advance-card-bttf.png',
+                content: 'Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.',
+            },
+            {
+                user: {
+                    avatar: 'assets/img/sarah-avatar.png.jpeg',
+                    name: 'Sarah Connor'
+                },
+                date: 'May 12, 1984',
+                image: 'assets/img/advance-card-tmntr.jpg',
+                content: 'I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.'
+            },
+            {
+                user: {
+                    avatar: 'assets/img/ian-avatar.png',
+                    name: 'Dr. Ian Malcolm'
+                },
+                date: 'June 28, 1990',
+                image: 'assets/img/advance-card-jp.jpg',
+                content: 'Your scientists were so preoccupied with whether or not they could, that they didn\'t stop to think if they should.'
+            }
+        ];
     }
-    CantidadPage.prototype.cambiar = function (producto) {
-        alert(JSON.stringify(producto));
-    };
-    CantidadPage.prototype.gestionar = function () {
-        var _this = this;
-        this.service.obtenerPrecio(this.formCodigo.value.unidad).subscribe(function (res) {
-            if (_this.formCodigo.valid) {
-                if (_this.formCodigo.value.cantidad <= 0) {
-                    alert("No se puede ingresar cantidades igual o menor a cero");
-                }
-                else {
-                    _this.viewCtrl.dismiss({ cantidad: _this.formCodigo.value.cantidad, precio: res });
-                }
-            }
-            else {
-                alert("Completa todos los campos");
-            }
-        });
-    };
-    CantidadPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad StockPage');
-    };
-    CantidadPage.prototype.obtenerPrecios = function () {
-        var _this = this;
-        var seq = this.service.obtenerPrecios(this.prod.id);
-        seq.subscribe(function (res) {
-            _this.items = res;
-        });
-    };
-    CantidadPage = __decorate([
+    CardsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-cantidad',template:/*ion-inline-start:"C:\Proyectos\inventarioclient\src\pages\cantidad\cantidad.html"*/'<ion-content>\n\n    <div class="w3-container w3-blue">\n\n      <h3>Cantidad</h3>\n\n    </div>\n\n  \n\n    <form id="container" [formGroup]="formCodigo" (ngSubmit)="gestionar()">\n\n  \n\n      <div class="w3-container w3-row">\n\n        <div class="w3-col s12 m4 l4 w3-padding">\n\n            <label class="w3-text-blue">\n\n                <b>Unidad</b>\n\n              </label>\n\n              <select [(ngModel)]="unidad"  class="w3-select w3-border w3-round w3-white" name="option" formControlName="unidad">\n\n                <option value="" disabled selected>Elige una opción</option>\n\n        \n\n                <option *ngFor="let item of items" value="{{item.id}}">{{item.unidad.nombre}}</option>\n\n        \n\n              </select>\n\n        </div>\n\n  \n\n        <div class="w3-col s12 m4 l4 w3-padding">\n\n            <label class="w3-text-blue">\n\n                <b>Cantidad</b>\n\n              </label>\n\n              <input class="w3-input w3-border w3-round" placeholder="Cantidad" autofocus formControlName="cantidad" type="number">\n\n        \n\n        \n\n        </div>\n\n  \n\n        \n\n      </div>\n\n      <div class="w3-container w3-padding">\n\n          <button class="w3-btn w3-blue w3-round  ">Guardar</button>\n\n      </div>\n\n  \n\n  \n\n    </form>\n\n  \n\n  \n\n  </ion-content>'/*ion-inline-end:"C:\Proyectos\inventarioclient\src\pages\cantidad\cantidad.html"*/,
+            selector: 'page-cards',template:/*ion-inline-start:"C:\Proyectos\HERAS\inventarioclient\src\pages\cards\cards.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ \'CARDS_TITLE\' | translate }}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n  <ion-card *ngFor="let item of cardItems">\n\n\n\n    <ion-item>\n\n      <ion-avatar item-start>\n\n        <img [src]="item.user.avatar">\n\n      </ion-avatar>\n\n      <h2>{{item.user.name}}</h2>\n\n      <p>{{item.date}}</p>\n\n    </ion-item>\n\n\n\n    <img [src]="item.image">\n\n\n\n    <ion-card-content>\n\n      <p>{{item.content}}</p>\n\n    </ion-card-content>\n\n\n\n    <ion-row>\n\n      <ion-col>\n\n        <button ion-button color="primary" clear small icon-start>\n\n            <ion-icon name=\'thumbs-up\'></ion-icon>\n\n            12 Likes\n\n          </button>\n\n      </ion-col>\n\n      <ion-col>\n\n        <button ion-button color="primary" clear small icon-start>\n\n            <ion-icon name=\'text\'></ion-icon>\n\n            4 Comments\n\n          </button>\n\n      </ion-col>\n\n      <ion-col center text-center>\n\n        <ion-note>\n\n          11h ago\n\n        </ion-note>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\HERAS\inventarioclient\src\pages\cards\cards.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_providers__["b" /* Items */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
-    ], CantidadPage);
-    return CantidadPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]])
+    ], CardsPage);
+    return CardsPage;
 }());
 
-//# sourceMappingURL=cantidad.js.map
+//# sourceMappingURL=cards.js.map
 
 /***/ })
 

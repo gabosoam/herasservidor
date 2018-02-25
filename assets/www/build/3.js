@@ -1,6 +1,6 @@
 webpackJsonp([3],{
 
-/***/ 346:
+/***/ 348:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StockPageModule", function() { return StockPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__stock__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__stock__ = __webpack_require__(368);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var StockPageModule = (function () {
 
 /***/ }),
 
-/***/ 365:
+/***/ 368:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97,17 +97,21 @@ var StockPage = (function () {
         seq.subscribe(function (res) {
             console.log(res);
             _this.items = res;
+            _this.formCodigo.setValue({
+                unidad: _this.items[0].tamano,
+                cantidad: '',
+            });
         });
     };
     StockPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-stock',template:/*ion-inline-start:"C:\Proyectos\inventarioclient\src\pages\stock\stock.html"*/'<ion-content>\n\n  <div class="w3-container w3-blue">\n\n    <h3>Agregar stock</h3>\n\n  </div>\n\n\n\n  <form id="container" [formGroup]="formCodigo" (ngSubmit)="gestionar()">\n\n\n\n    <div class="w3-container w3-row">\n\n      <div class="w3-col s12 m4 l4 w3-padding">\n\n          <label class="w3-text-blue">\n\n              <b>Unidad</b>\n\n            </label>\n\n            <select [(ngModel)]="unidad" class="w3-select w3-border w3-round w3-white" name="option" formControlName="unidad">\n\n              <option value="" disabled selected="true">Elige una opción</option>\n\n      \n\n              <option *ngFor="let item of items" value={{item.tamano}}>{{item.unidad.nombre}}</option>\n\n      \n\n            </select>\n\n\n\n\n\n    \n\n      </div>\n\n\n\n      <div class="w3-col s12 m4 l4 w3-padding">\n\n          <label class="w3-text-blue">\n\n              <b>Cantidad</b>\n\n            </label>\n\n            <input class="w3-input w3-border w3-round" placeholder="Cantidad" autofocus formControlName="cantidad" type="number">\n\n      \n\n      \n\n      </div>\n\n\n\n      \n\n    </div>\n\n    <div class="w3-container w3-padding">\n\n        <button class="w3-btn w3-blue w3-round  ">Guardar</button>\n\n    </div>\n\n\n\n\n\n  </form>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\inventarioclient\src\pages\stock\stock.html"*/,
+            selector: 'page-stock',template:/*ion-inline-start:"C:\Proyectos\HERAS\inventarioclient\src\pages\stock\stock.html"*/'<ion-content>\n\n  <div class="w3-container w3-blue">\n\n    <h3>Agregar stock</h3>\n\n  </div>\n\n\n\n  <form id="container" [formGroup]="formCodigo" (ngSubmit)="gestionar()">\n\n\n\n    <div class="w3-container w3-row">\n\n      <div class="w3-col s12 m4 l4 w3-padding">\n\n          <label class="w3-text-blue">\n\n              <b>Unidad</b>\n\n            </label>\n\n            <select [(ngModel)]="unidad" class="w3-select w3-border w3-round-large w3-white w3-large" name="option" formControlName="unidad">\n\n              <option value="" disabled selected="true">Elige una opción</option>\n\n      \n\n              <option *ngFor="let item of items" value={{item.tamano}}>{{item.unidad.nombre}}</option>\n\n      \n\n            </select>\n\n\n\n\n\n    \n\n      </div>\n\n\n\n      <div class="w3-col s12 m4 l4 w3-padding">\n\n          <label class="w3-text-blue">\n\n              <b>Cantidad</b>\n\n            </label>\n\n            <input ng-focus="isFocused" class="w3-input w3-border w3-round-large w3-large" placeholder="Cantidad" autofocus formControlName="cantidad" type="number">\n\n      \n\n      \n\n      </div>\n\n\n\n      \n\n    </div>\n\n    <div class="w3-container w3-padding">\n\n        <button class="w3-btn w3-blue w3-round  ">Guardar</button>\n\n    </div>\n\n\n\n\n\n  </form>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\HERAS\inventarioclient\src\pages\stock\stock.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
             __WEBPACK_IMPORTED_MODULE_3__providers_providers__["b" /* Items */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]])
     ], StockPage);
     return StockPage;
 }());

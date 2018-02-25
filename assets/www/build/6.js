@@ -1,6 +1,6 @@
 webpackJsonp([6],{
 
-/***/ 343:
+/***/ 345:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search__ = __webpack_require__(365);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -44,7 +44,7 @@ var SearchPageModule = (function () {
 
 /***/ }),
 
-/***/ 362:
+/***/ 365:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53,7 +53,7 @@ var SearchPageModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_providers__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_barcode_scanner__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_barcode_scanner__ = __webpack_require__(227);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -166,6 +166,17 @@ var SearchPage = (function () {
             }
             else {
                 _this.form.reset();
+                _this.form.setValue({
+                    codigo: _this.form2.value.name,
+                    nombre: '',
+                    marca: '',
+                    categoria: '',
+                    precio: 0,
+                    stock: 0,
+                    minimo: 1,
+                    unidad: '',
+                    estado: 1,
+                });
                 _this.validador = false;
             }
         }, function (err) {
@@ -280,14 +291,14 @@ var SearchPage = (function () {
     };
     SearchPage = SearchPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-search',template:/*ion-inline-start:"C:\Proyectos\inventarioclient\src\pages\search\search.html"*/'<ion-content>\n\n\n\n  <div class="w3-container w3-blue">\n\n    <h3>Crear producto</h3>\n\n  </div>\n\n\n\n  <button ion-button (click)="escanear()" >Escanear cóðigo</button>\n\n\n\n  <form id="container" *ngIf="form2" [formGroup]="form2" (ngSubmit)="saludar()">\n\n    <ion-searchbar [(ngModel)]="cbxProducto" formControlName="name" placeholder="Buscar producto por código">\n\n    </ion-searchbar>\n\n  </form>\n\n\n\n  <form class="w3-container" id="container" *ngIf="form" [formGroup]="form" (ngSubmit)="registrar()">\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Código</b>\n\n    </label>\n\n    <input class="w3-input w3-border w3-round" placeholder="Código de barras del producto" autofocus formControlName="codigo"\n\n      type="text">\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Nombre</b>\n\n    </label>\n\n    <input class="w3-input w3-border w3-round" placeholder="Nombre del producto" autofocus formControlName="nombre" type="text">\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Unidad</b>\n\n    </label>\n\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="unidad">\n\n      <option value="" disabled selected>Elige una opción</option>\n\n      <option *ngFor="let unidad of unidades" value={{unidad.id}}>{{unidad.nombre}}</option>\n\n\n\n    </select>\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Marca</b>\n\n    </label>\n\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="marca">\n\n      <option value="" disabled selected>Elige una opción</option>\n\n      <option *ngFor="let marca of marcas" value={{marca.id}}>{{marca.nombre}}</option>\n\n\n\n    </select>\n\n    <label class="w3-text-blue">\n\n      <b>Categoría</b>\n\n    </label>\n\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="categoria">\n\n      <option value="" disabled selected>Elige una opción</option>\n\n      <option *ngFor="let categoria of categorias" value={{categoria.id}}>{{categoria.nombre}}</option>\n\n\n\n    </select>\n\n\n\n    <label class="w3-text-blue">\n\n        <b>Precio</b>\n\n      </label>\n\n      <input class="w3-input w3-border w3-round" placeholder="Precio del producto" autofocus formControlName="precio" type="number">\n\n  \n\n      <label class="w3-text-blue">\n\n          <b>Stock inicial</b>\n\n        </label>\n\n        <input class="w3-input w3-border w3-round" placeholder="Stock inicial" autofocus formControlName="stock" type="number">\n\n  \n\n        <label class="w3-text-blue">\n\n            <b>Stock mínimo</b>\n\n          </label>\n\n          <input class="w3-input w3-border w3-round" placeholder="Stock mínimo" autofocus formControlName="minimo" type="number">\n\n      \n\n\n\n  </form>\n\n  <button ion-button (click)="registrar()">Guardar</button>\n\n  <button ion-button (click)="cancelar()">Cancelar</button>\n\n\n\n\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\inventarioclient\src\pages\search\search.html"*/
+            selector: 'page-search',template:/*ion-inline-start:"C:\Proyectos\HERAS\inventarioclient\src\pages\search\search.html"*/'<ion-content>\n\n\n\n  <div class="w3-container w3-blue">\n\n    <h3>Crear producto</h3>\n\n  </div>\n\n\n\n  <button ion-button (click)="escanear()" >Escanear cóðigo</button>\n\n\n\n  <form id="container" *ngIf="form2" [formGroup]="form2" (ngSubmit)="saludar()">\n\n    <ion-searchbar [(ngModel)]="cbxProducto" formControlName="name" placeholder="Buscar producto por código">\n\n    </ion-searchbar>\n\n  </form>\n\n\n\n  <form class="w3-container" id="container" *ngIf="form" [formGroup]="form" (ngSubmit)="registrar()">\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Código</b>\n\n    </label>\n\n    <input class="w3-input w3-border w3-round" placeholder="Código de barras del producto" autofocus formControlName="codigo"\n\n      type="text">\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Nombre</b>\n\n    </label>\n\n    <input class="w3-input w3-border w3-round" placeholder="Nombre del producto" autofocus formControlName="nombre" type="text">\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Unidad</b>\n\n    </label>\n\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="unidad">\n\n      <option value="" disabled selected>Elige una opción</option>\n\n      <option *ngFor="let unidad of unidades" value={{unidad.id}}>{{unidad.nombre}}</option>\n\n\n\n    </select>\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Marca</b>\n\n    </label>\n\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="marca">\n\n      <option value="" disabled selected>Elige una opción</option>\n\n      <option *ngFor="let marca of marcas" value={{marca.id}}>{{marca.nombre}}</option>\n\n\n\n    </select>\n\n    <label class="w3-text-blue">\n\n      <b>Categoría</b>\n\n    </label>\n\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="categoria">\n\n      <option value="" disabled selected>Elige una opción</option>\n\n      <option *ngFor="let categoria of categorias" value={{categoria.id}}>{{categoria.nombre}}</option>\n\n\n\n    </select>\n\n\n\n    <label class="w3-text-blue">\n\n        <b>Precio</b>\n\n      </label>\n\n      <input class="w3-input w3-border w3-round" placeholder="Precio del producto" autofocus formControlName="precio" type="number">\n\n  \n\n      <label class="w3-text-blue">\n\n          <b>Stock inicial</b>\n\n        </label>\n\n        <input class="w3-input w3-border w3-round" placeholder="Stock inicial" autofocus formControlName="stock" type="number">\n\n  \n\n        <label class="w3-text-blue">\n\n            <b>Stock mínimo</b>\n\n          </label>\n\n          <input class="w3-input w3-border w3-round" placeholder="Stock mínimo" autofocus formControlName="minimo" type="number">\n\n      \n\n\n\n  </form>\n\n  <button ion-button (click)="registrar()">Guardar</button>\n\n  <button ion-button (click)="cancelar()">Cancelar</button>\n\n\n\n\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\HERAS\inventarioclient\src\pages\search\search.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* Items */],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_barcode_scanner__["a" /* BarcodeScanner */]])
     ], SearchPage);
     return SearchPage;

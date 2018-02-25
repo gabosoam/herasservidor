@@ -1,6 +1,6 @@
 webpackJsonp([9],{
 
-/***/ 341:
+/***/ 342:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login__ = __webpack_require__(362);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -44,7 +44,7 @@ var LoginPageModule = (function () {
 
 /***/ }),
 
-/***/ 360:
+/***/ 362:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53,7 +53,7 @@ var LoginPageModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_providers__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages__ = __webpack_require__(224);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -102,11 +102,11 @@ var LoginPage = (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Proyectos\inventarioclient\src\pages\login\login.html"*/'\n\n\n\n<ion-content padding class="animated fadeIn login auth-page">\n\n  \n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-0 col-sm-0 col-xs-0 col-md-0 col-lg-4 col-xl-4></ion-col>\n\n      <ion-col col-12 col-sm-12 col-xs-12 col-md-12 col-lg-4 col-xl-4>\n\n          <div class="login-content">\n\n\n\n              <!-- Logo -->\n\n              <div padding-horizontal text-center class="animated fadeInDown">\n\n                <div class="logo"></div>\n\n                <h2 ion-text class="text-primary">\n\n                  <strong>Sistema de inventario</strong> \n\n                </h2>\n\n              </div>\n\n          \n\n              <!-- Login form -->\n\n              <form (submit)="doLogin()">\n\n                <ion-item>\n\n                  <ion-label stacked>\n\n                    <ion-icon name="md-contact" item-start class="text-primary"></ion-icon>\n\n                    Nombre de usuario\n\n                  </ion-label>\n\n                  <ion-input type="text" [(ngModel)]="account.nombre" name="email"></ion-input>\n\n                </ion-item>\n\n          \n\n                <ion-item>\n\n                  <ion-label stacked>\n\n                    <ion-icon name="lock" item-start class="text-primary"></ion-icon>\n\n                    Contraseña\n\n                  </ion-label>\n\n                  <ion-input type="password" [(ngModel)]="account.contrasena" name="password"></ion-input>\n\n                </ion-item>\n\n              </form>\n\n          \n\n             \n\n              <div><br>\n\n                <button ion-button icon-start block color="dark" tappable (click)="doLogin()">\n\n                  <ion-icon name="log-in"></ion-icon>\n\n                  Iniciar sesión\n\n                </button>\n\n          \n\n               \n\n           \n\n          \n\n              </div>\n\n          \n\n          \n\n          \n\n            </div>\n\n      </ion-col>\n\n      <ion-col col-0 col-sm-0 col-xs-0 col-md-0 col-lg-4 col-xl-4></ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n\n\n  <!-- <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-4>\n\n\n\n      </ion-col>\n\n\n\n      <ion-col col-4>\n\n          <form (submit)="doLogin()">\n\n              <ion-list>\n\n                  <br><br><br>\n\n                <img src="assets/img/logo0.jpg" alt="">\n\n                <br><br><br>\n\n                <ion-item>\n\n                  <ion-label floating>Nombre de usuario</ion-label>\n\n                  <ion-input type="text" [(ngModel)]="account.nombre" name="email"></ion-input>\n\n                </ion-item>\n\n          \n\n          \n\n                <ion-item>\n\n                  <ion-label floating>Contraseña</ion-label>\n\n                  <ion-input type="password" [(ngModel)]="account.contrasena" name="password"></ion-input>\n\n                </ion-item>\n\n          \n\n                <div padding>\n\n                  <button ion-button color="primary" block>{{ \'LOGIN_BUTTON\' | translate }}</button>\n\n                </div>\n\n          \n\n              </ion-list>\n\n            </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-4>\n\n\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid> -->\n\n  \n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\inventarioclient\src\pages\login\login.html"*/
+            selector: 'page-login',template:/*ion-inline-start:"C:\Proyectos\HERAS\inventarioclient\src\pages\login\login.html"*/'<ion-content padding class="animated fadeIn login auth-page">\n\n\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-0 col-sm-0 col-xs-0 col-md-0 col-lg-4 col-xl-4></ion-col>\n\n      <ion-col col-12 col-sm-12 col-xs-12 col-md-12 col-lg-4 col-xl-4>\n\n        <div class="login-content w3-card-4 w3-white w3-round-large  w3-padding w3-border-blue">\n\n\n\n          <!-- Logo -->\n\n          <div padding-horizontal text-center class="animated fadeInDown">\n\n            <img src="/assets/img/logo.jpg" alt="">\n\n            <br>\n\n            <br>\n\n            <h2 ion-text class="text-primary">\n\n              <strong>Sistema de inventario HERAS</strong>\n\n            </h2>\n\n          </div>\n\n          <br>\n\n          <br>\n\n          <form class="w3-container" (submit)="doLogin()">\n\n\n\n            <label class="w3-text-blue">\n\n              <b>Nombre de usuario</b>\n\n            </label>\n\n            <input autofocus placeholder="Ingrese su nombre de usuario" [(ngModel)]="account.nombre" name="email" class="w3-input w3-border w3-large w3-round"\n\n              type="text">\n\n            <br>\n\n            <label class="w3-text-blue">\n\n              <b>Contraseña</b>\n\n            </label>\n\n            <input placeholder="Ingrese su contraseña " [(ngModel)]="account.contrasena" name="password" class="w3-input w3-border w3-large w3-round"\n\n              type="password">\n\n            <br>\n\n            <button class="w3-btn w3-blue w3-round w3-large">Iniciar sesión</button>\n\n\n\n            <br>\n\n            <br>\n\n\n\n          </form>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n        </div>\n\n      </ion-col>\n\n      <ion-col col-0 col-sm-0 col-xs-0 col-md-0 col-lg-4 col-xl-4></ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n\n\n  <!-- <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-4>\n\n\n\n      </ion-col>\n\n\n\n      <ion-col col-4>\n\n          <form (submit)="doLogin()">\n\n              <ion-list>\n\n                  <br><br><br>\n\n                <img src="assets/img/logo0.jpg" alt="">\n\n                <br><br><br>\n\n                <ion-item>\n\n                  <ion-label floating>Nombre de usuario</ion-label>\n\n                  <ion-input type="text" [(ngModel)]="account.nombre" name="email"></ion-input>\n\n                </ion-item>\n\n          \n\n          \n\n                <ion-item>\n\n                  <ion-label floating>Contraseña</ion-label>\n\n                  <ion-input type="password" [(ngModel)]="account.contrasena" name="password"></ion-input>\n\n                </ion-item>\n\n          \n\n                <div padding>\n\n                  <button ion-button color="primary" block>{{ \'LOGIN_BUTTON\' | translate }}</button>\n\n                </div>\n\n          \n\n              </ion-list>\n\n            </form>\n\n      </ion-col>\n\n\n\n      <ion-col col-4>\n\n\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid> -->\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\HERAS\inventarioclient\src\pages\login\login.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3__providers_providers__["d" /* User */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["n" /* ToastController */],
             __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]])
     ], LoginPage);
     return LoginPage;

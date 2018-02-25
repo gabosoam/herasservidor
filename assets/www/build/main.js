@@ -1,4 +1,4 @@
-webpackJsonp([19],{
+webpackJsonp([20],{
 
 /***/ 131:
 /***/ (function(module, exports) {
@@ -23,66 +23,70 @@ webpackEmptyAsyncContext.id = 131;
 var map = {
 	"../pages/buscarproducto/buscarproducto.module": [
 		332,
-		18
+		19
 	],
 	"../pages/cantidad/cantidad.module": [
 		333,
-		17
+		18
 	],
 	"../pages/cards/cards.module": [
 		334,
-		16
+		17
 	],
 	"../pages/content/content.module": [
 		335,
-		15
+		16
 	],
 	"../pages/factura-cobrar/factura-cobrar.module": [
 		336,
+		15
+	],
+	"../pages/historial/historial.module": [
+		337,
 		14
 	],
 	"../pages/history/history.module": [
-		339,
+		338,
 		13
 	],
 	"../pages/item-create/item-create.module": [
-		337,
+		339,
 		12
 	],
 	"../pages/item-detail/item-detail.module": [
-		338,
+		340,
 		11
 	],
 	"../pages/list-master/list-master.module": [
-		340,
+		341,
 		10
 	],
 	"../pages/login/login.module": [
-		341,
+		342,
 		9
 	],
 	"../pages/menu/menu.module": [
-		350,
+		343,
 		8
 	],
 	"../pages/precio/precio.module": [
-		342,
+		344,
 		7
 	],
 	"../pages/search/search.module": [
-		343,
+		345,
 		6
 	],
 	"../pages/settings/settings.module": [
-		344,
+		346,
 		5
 	],
 	"../pages/signup/signup.module": [
-		345,
+		347,
 		4
 	],
 	"../pages/stock/stock.module": [
-		346,
+		348,
 		3
 	],
 	"../pages/tabs/tabs.module": [
@@ -90,11 +94,11 @@ var map = {
 		2
 	],
 	"../pages/tutorial/tutorial.module": [
-		347,
+		350,
 		1
 	],
 	"../pages/welcome/welcome.module": [
-		348,
+		351,
 		0
 	]
 };
@@ -120,8 +124,9 @@ module.exports = webpackAsyncContext;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Items; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_item__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_item__ = __webpack_require__(311);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_user__ = __webpack_require__(184);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -134,9 +139,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var Items = (function () {
-    function Items(api) {
+    function Items(api, usuario) {
         this.api = api;
+        this.usuario = usuario;
         this.items = [];
         this.defaultItem = {
             "name": "Burt Bear",
@@ -233,7 +240,39 @@ var Items = (function () {
         return seq;
     };
     Items.prototype.obtenerMarcas = function () {
-        var seq = this.api.get('marca?').share();
+        var seq = this.api.get('marca?sort=nombre asc').share();
+        return seq;
+    };
+    Items.prototype.obtenerFacturas = function () {
+        var seq = this.api.get('factura/todas').share();
+        return seq;
+    };
+    Items.prototype.obtenerFacturasHoy = function () {
+        var seq = this.api.get('factura/deldia').share();
+        return seq;
+    };
+    Items.prototype.obtenerFacturasSemana = function () {
+        var seq = this.api.get('factura/delasemana').share();
+        return seq;
+    };
+    Items.prototype.obtenerFacturasMes = function () {
+        var seq = this.api.get('factura/delmes').share();
+        return seq;
+    };
+    Items.prototype.obtenerProductosEnCero = function () {
+        var seq = this.api.get('producto?stock=0 ').share();
+        return seq;
+    };
+    Items.prototype.obtenerPorCategoria = function (categoria) {
+        var seq = this.api.get('producto?categoria= ' + categoria).share();
+        return seq;
+    };
+    Items.prototype.obtenerPorMarca = function (marca) {
+        var seq = this.api.get('producto?marca= ' + marca).share();
+        return seq;
+    };
+    Items.prototype.precioCero = function () {
+        var seq = this.api.get('producto?precio=0 ').share();
         return seq;
     };
     Items.prototype.obtenerPrecio = function (precio) {
@@ -255,7 +294,7 @@ var Items = (function () {
         return seq;
     };
     Items.prototype.obtenerCategorias = function () {
-        var seq = this.api.get('categoria').share();
+        var seq = this.api.get('categoria?sort=nombre asc').share();
         return seq;
     };
     Items.prototype.obtenerUnidades = function () {
@@ -294,7 +333,7 @@ var Items = (function () {
     };
     Items.prototype.crearFactura = function () {
         var _this = this;
-        var seq = this.api.post('factura', null).share();
+        var seq = this.api.post('factura', { usuario: this.usuario._user.id.nombre }).share();
         seq.subscribe(function (res) {
             _this.ingfactura(res);
             // If the API returned a successful response, mark the user as logged in
@@ -380,7 +419,7 @@ var Items = (function () {
     };
     Items = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */], __WEBPACK_IMPORTED_MODULE_3__providers_user_user__["a" /* User */]])
     ], Items);
     return Items;
 }());
@@ -389,7 +428,108 @@ var Items = (function () {
 
 /***/ }),
 
-/***/ 223:
+/***/ 184:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(94);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Most apps have the concept of a User. This is a simple provider
+ * with stubs for login/signup/etc.
+ *
+ * This User provider makes calls to our API at the `login` and `signup` endpoints.
+ *
+ * By default, it expects `login` and `signup` to return a JSON object of the shape:
+ *
+ * ```json
+ * {
+ *   status: 'success',
+ *   user: {
+ *     // User fields your app needs, like "id", "name", "email", etc.
+ *   }
+ * }Ø
+ * ```
+ *
+ * If the `status` field is not `success`, then an error is detected and returned.
+ */
+var User = (function () {
+    function User(api) {
+        this.api = api;
+    }
+    /**
+     * Send a POST request to our login endpoint with the data
+     * the user entered on the form.
+     */
+    User.prototype.login = function (accountInfo) {
+        var _this = this;
+        var seq = this.api.post('login', accountInfo).share();
+        seq.subscribe(function (res) {
+            _this._loggedIn(res);
+        }, function (err) {
+            console.error('ERROR', err);
+        });
+        return seq;
+    };
+    /**
+     * Send a POST request to our signup endpoint with the data
+     * the user entered on the form.
+     */
+    User.prototype.signup = function (accountInfo) {
+        var _this = this;
+        var seq = this.api.post('usuario', accountInfo).share();
+        seq.subscribe(function (res) {
+            // If the API returned a successful response, mark the user as logged in
+            if (res.status == 'success') {
+                _this._loggedIn(res);
+            }
+        }, function (err) {
+            console.error('ERROR', err);
+        });
+        return seq;
+    };
+    /**
+     * Log the user out, which forgets the session
+     */
+    User.prototype.logout = function () {
+        this._user = null;
+    };
+    /**
+     * Process a login/signup response to store user data
+     */
+    User.prototype._loggedIn = function (resp) {
+        console.log('hola');
+        console.log('creado el usuario');
+        this._user = resp;
+        console.log(this._user);
+    };
+    User = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* Api */]])
+    ], User);
+    return User;
+}());
+
+//# sourceMappingURL=user.js.map
+
+/***/ }),
+
+/***/ 224:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -400,6 +540,7 @@ var Items = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return Tab2Root; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Tab3Root; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return Tab4Root; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return Tab5Root; });
 // The page the user lands on after opening the app and without a session
 var FirstRunPage = 'LoginPage';
 // The main page the user will see as they use the app over a long period of time.
@@ -411,17 +552,18 @@ var Tab1Root = 'ListMasterPage';
 var Tab2Root = 'ListMasterPage';
 var Tab3Root = 'SearchPage';
 var Tab4Root = 'SettingsPage';
+var Tab5Root = 'HistorialPage';
 //# sourceMappingURL=pages.js.map
 
 /***/ }),
 
-/***/ 227:
+/***/ 228:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(228);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(242);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -429,7 +571,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 241:
+/***/ 242:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -439,18 +581,18 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(225);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(135);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(136);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngx_translate_http_loader__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngx_translate_http_loader__ = __webpack_require__(287);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ionic_angular__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mocks_providers_items__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_providers__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__(331);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_printer__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_barcode_scanner__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_printer__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_barcode_scanner__ = __webpack_require__(227);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -518,20 +660,21 @@ var AppModule = (function () {
                         { loadChildren: '../pages/cards/cards.module#CardsPageModule', name: 'CardsPage', segment: 'cards', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/content/content.module#ContentPageModule', name: 'ContentPage', segment: 'content', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/factura-cobrar/factura-cobrar.module#FacturaCobrarPageModule', name: 'FacturaCobrarPage', segment: 'factura-cobrar', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/historial/historial.module#HistorialPageModule', name: 'HistorialPage', segment: 'historial', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-create/item-create.module#ItemCreatePageModule', name: 'ItemCreatePage', segment: 'item-create', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-detail/item-detail.module#ItemDetailPageModule', name: 'ItemDetailPage', segment: 'item-detail', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/precio/precio.module#PrecioPageModule', name: 'PrecioPage', segment: 'precio', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'SearchPage', segment: 'search', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/stock/stock.module#StockPageModule', name: 'StockPage', segment: 'stock', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["a" /* IonicStorageModule */].forRoot()
@@ -562,7 +705,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 310:
+/***/ 311:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -591,7 +734,7 @@ var Item = (function () {
 
 /***/ }),
 
-/***/ 311:
+/***/ 313:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -680,109 +823,6 @@ var Settings = (function () {
 
 /***/ }),
 
-/***/ 312:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(94);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/**
- * Most apps have the concept of a User. This is a simple provider
- * with stubs for login/signup/etc.
- *
- * This User provider makes calls to our API at the `login` and `signup` endpoints.
- *
- * By default, it expects `login` and `signup` to return a JSON object of the shape:
- *
- * ```json
- * {
- *   status: 'success',
- *   user: {
- *     // User fields your app needs, like "id", "name", "email", etc.
- *   }
- * }Ø
- * ```
- *
- * If the `status` field is not `success`, then an error is detected and returned.
- */
-var User = (function () {
-    function User(api) {
-        this.api = api;
-    }
-    /**
-     * Send a POST request to our login endpoint with the data
-     * the user entered on the form.
-     */
-    User.prototype.login = function (accountInfo) {
-        var _this = this;
-        var seq = this.api.post('login', accountInfo).share();
-        seq.subscribe(function (res) {
-            // If the API returned a successful response, mark the user as logged in
-            if (res.status == 'success') {
-                _this._loggedIn(res);
-            }
-            else {
-            }
-        }, function (err) {
-            console.error('ERROR', err);
-        });
-        return seq;
-    };
-    /**
-     * Send a POST request to our signup endpoint with the data
-     * the user entered on the form.
-     */
-    User.prototype.signup = function (accountInfo) {
-        var _this = this;
-        var seq = this.api.post('usuario', accountInfo).share();
-        seq.subscribe(function (res) {
-            // If the API returned a successful response, mark the user as logged in
-            if (res.status == 'success') {
-                _this._loggedIn(res);
-            }
-        }, function (err) {
-            console.error('ERROR', err);
-        });
-        return seq;
-    };
-    /**
-     * Log the user out, which forgets the session
-     */
-    User.prototype.logout = function () {
-        this._user = null;
-    };
-    /**
-     * Process a login/signup response to store user data
-     */
-    User.prototype._loggedIn = function (resp) {
-        this._user = resp.user;
-    };
-    User = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* Api */]])
-    ], User);
-    return User;
-}());
-
-//# sourceMappingURL=user.js.map
-
-/***/ }),
-
 /***/ 331:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -793,7 +833,7 @@ var User = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(135);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_pages__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_pages__ = __webpack_require__(224);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_providers__ = __webpack_require__(43);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -826,6 +866,7 @@ var MyApp = (function () {
             { title: 'Cards', component: 'CardsPage' },
             { title: 'Content', component: 'ContentPage' },
             { title: 'Login', component: 'LoginPage' },
+            { title: 'Historial', component: 'HistorialPage' },
             { title: 'Signup', component: 'SignupPage' },
             { title: 'Master Detail', component: 'ListMasterPage' },
             { title: 'Menu', component: 'MenuPage' },
@@ -872,14 +913,14 @@ var MyApp = (function () {
         this.nav.setRoot(page.component);
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             template: "<ion-menu [content]=\"content\">\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>Pages</ion-title>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content>\n      <ion-list>\n        <button menuClose ion-item *ngFor=\"let p of pages\" (click)=\"openPage(p)\">\n          {{p.title}}\n        </button>\n      </ion-list>\n    </ion-content>\n\n  </ion-menu>\n  <ion-nav #content [root]=\"rootPage\"></ion-nav>"
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_6__providers_providers__["c" /* Settings */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["b" /* Config */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_1__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["m" /* Platform */], __WEBPACK_IMPORTED_MODULE_6__providers_providers__["c" /* Settings */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["b" /* Config */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_1__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
 }());
@@ -894,8 +935,8 @@ var MyApp = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_api__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mocks_providers_items__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings_settings__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_user__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings_settings__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_user__ = __webpack_require__(184);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__api_api__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__mocks_providers_items__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__settings_settings__["a"]; });
@@ -931,10 +972,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Api is a generic REST Api handler. Set your API url first.
  */
 var Api = (function () {
-    //url: string = 'http://localhost:1337';
     function Api(http) {
         this.http = http;
-        this.url = 'http://192.168.1.35:1337';
+        //url: string = 'http://192.168.1.35:1337';
+        //url: string = 'http://localhost:1337';
+        this.url = 'http://localhost:1337';
     }
     Api.prototype.get = function (endpoint, params, reqOpts) {
         if (!reqOpts) {
@@ -974,5 +1016,5 @@ var Api = (function () {
 
 /***/ })
 
-},[227]);
+},[228]);
 //# sourceMappingURL=main.js.map

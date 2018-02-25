@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs__ = __webpack_require__(368);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs__ = __webpack_require__(369);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -44,7 +44,7 @@ var TabsPageModule = (function () {
 
 /***/ }),
 
-/***/ 368:
+/***/ 369:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52,7 +52,7 @@ var TabsPageModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages__ = __webpack_require__(224);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -69,6 +69,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var TabsPage = (function () {
     function TabsPage(navCtrl, translateService) {
         this.navCtrl = navCtrl;
@@ -77,10 +78,12 @@ var TabsPage = (function () {
         this.tab2Root = __WEBPACK_IMPORTED_MODULE_3__pages__["d" /* Tab2Root */];
         this.tab3Root = __WEBPACK_IMPORTED_MODULE_3__pages__["e" /* Tab3Root */];
         this.tab4Root = __WEBPACK_IMPORTED_MODULE_3__pages__["f" /* Tab4Root */];
+        this.tab5Root = __WEBPACK_IMPORTED_MODULE_3__pages__["g" /* Tab5Root */];
         this.tab1Title = "Venta 1";
         this.tab2Title = "Venta 2";
         this.tab3Title = "Crear producto";
         this.tab4Title = "Inicio";
+        this.tab5Title = "Historial";
         translateService.get(['TAB1_TITLE', 'TAB2_TITLE', 'TAB3_TITLE']).subscribe(function (values) {
             // this.tab1Title = values['TAB1_TITLE'];
             // this.tab2Title = values['TAB2_TITLE'];
@@ -89,9 +92,9 @@ var TabsPage = (function () {
     }
     TabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-tabs',template:/*ion-inline-start:"C:\Proyectos\inventarioclient\src\pages\tabs\tabs.html"*/'<ion-tabs tabbarPlacement="top" primary>\n\n  <ion-tab [root]="tab4Root" [tabTitle]="tab4Title" tabIcon="ios-home"></ion-tab>\n\n  <ion-tab [root]="tab1Root" [tabTitle]="tab1Title" tabIcon="ios-cart"></ion-tab>\n\n  <ion-tab [root]="tab1Root" [tabTitle]="tab2Title" tabIcon="ios-cart"></ion-tab>\n\n\n\n</ion-tabs>'/*ion-inline-end:"C:\Proyectos\inventarioclient\src\pages\tabs\tabs.html"*/
+            selector: 'page-tabs',template:/*ion-inline-start:"C:\Proyectos\HERAS\inventarioclient\src\pages\tabs\tabs.html"*/'<ion-tabs tabsPlacement="bottom" color="primary">\n\n  <ion-tab [root]="tab4Root" [tabTitle]="tab4Title" tabIcon="ios-home"></ion-tab>\n\n  <ion-tab [root]="tab1Root" [tabTitle]="tab1Title" tabIcon="ios-cart"></ion-tab>\n\n  <ion-tab [root]="tab1Root" [tabTitle]="tab2Title" tabIcon="ios-cart"></ion-tab>\n\n  <ion-tab [root]="tab5Root" [tabTitle]="tab5Title" tabIcon="ios-document-outline"></ion-tab>\n\n\n\n</ion-tabs>'/*ion-inline-end:"C:\Proyectos\HERAS\inventarioclient\src\pages\tabs\tabs.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]])
     ], TabsPage);
     return TabsPage;
 }());

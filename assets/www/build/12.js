@@ -1,6 +1,6 @@
 webpackJsonp([12],{
 
-/***/ 337:
+/***/ 339:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__item_create__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__item_create__ = __webpack_require__(359);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -44,14 +44,14 @@ var ItemCreatePageModule = (function () {
 
 /***/ }),
 
-/***/ 356:
+/***/ 359:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemCreatePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(225);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_providers__ = __webpack_require__(43);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -165,11 +165,11 @@ var ItemCreatePage = (function () {
     ], ItemCreatePage.prototype, "fileInput", void 0);
     ItemCreatePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-item-create',template:/*ion-inline-start:"C:\Proyectos\inventarioclient\src\pages\item-create\item-create.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ producto.nombre }}</ion-title>\n\n\n\n\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <form *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">\n\n\n\n\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label stacked>Código</ion-label>\n\n        <ion-input disabled autofocus type="text" formControlName="codigo"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label stacked>Nombre</ion-label>\n\n        <ion-input type="text" formControlName="nombre"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n          <ion-label stacked>Unidad</ion-label>\n\n          <ion-select formControlName="unidad">\n\n            <ion-option *ngFor="let unidad of unidades" value="{{unidad.id}}">{{unidad.nombre}}</ion-option>\n\n  \n\n          </ion-select>\n\n        </ion-item>\n\n      <ion-item>\n\n        <ion-label stacked>Precio</ion-label>\n\n        <ion-input type="number" formControlName="precio"></ion-input>\n\n      </ion-item>\n\n    \n\n\n\n      <ion-item>\n\n        <ion-label stacked>Marca</ion-label>\n\n        <ion-select formControlName="marca">\n\n          <ion-option *ngFor="let marca of marcas" value={{marca.id}}>{{marca.nombre}}</ion-option>\n\n\n\n        </ion-select>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label stacked>Categoría</ion-label>\n\n        <ion-select formControlName="categoria">\n\n          <ion-option *ngFor="let categoria of categorias" value="{{categoria.id}}">{{categoria.nombre}}</ion-option>\n\n\n\n        </ion-select>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label stacked>Mínimo</ion-label>\n\n        <ion-input type="number" formControlName="minimo"></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n  </form>\n\n\n\n  <ion-col col-3>\n\n      <button ion-button (click)="done()">Guardar</button>\n\n    </ion-col>\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\inventarioclient\src\pages\item-create\item-create.html"*/
+            selector: 'page-item-create',template:/*ion-inline-start:"C:\Proyectos\HERAS\inventarioclient\src\pages\item-create\item-create.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ producto.nombre }}</ion-title>\n\n\n\n\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <form *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">\n\n\n\n\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label stacked>Código</ion-label>\n\n        <ion-input disabled autofocus type="text" formControlName="codigo"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label stacked>Nombre</ion-label>\n\n        <ion-input type="text" formControlName="nombre"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n          <ion-label stacked>Unidad</ion-label>\n\n          <ion-select formControlName="unidad">\n\n            <ion-option *ngFor="let unidad of unidades" value="{{unidad.id}}">{{unidad.nombre}}</ion-option>\n\n  \n\n          </ion-select>\n\n        </ion-item>\n\n      <ion-item>\n\n        <ion-label stacked>Precio</ion-label>\n\n        <ion-input type="number" formControlName="precio"></ion-input>\n\n      </ion-item>\n\n    \n\n\n\n      <ion-item>\n\n        <ion-label stacked>Marca</ion-label>\n\n        <ion-select formControlName="marca">\n\n          <ion-option *ngFor="let marca of marcas" value={{marca.id}}>{{marca.nombre}}</ion-option>\n\n\n\n        </ion-select>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label stacked>Categoría</ion-label>\n\n        <ion-select formControlName="categoria">\n\n          <ion-option *ngFor="let categoria of categorias" value="{{categoria.id}}">{{categoria.nombre}}</ion-option>\n\n\n\n        </ion-select>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label stacked>Mínimo</ion-label>\n\n        <ion-input type="number" formControlName="minimo"></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n  </form>\n\n\n\n  <ion-col col-3>\n\n      <button ion-button (click)="done()">Guardar</button>\n\n    </ion-col>\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\HERAS\inventarioclient\src\pages\item-create\item-create.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["n" /* ViewController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["l" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["o" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */],
             __WEBPACK_IMPORTED_MODULE_4__providers_providers__["b" /* Items */]])

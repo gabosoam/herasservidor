@@ -36,6 +36,7 @@ module.exports.routes = {
     view: 'homepage'
   },
 
+ 
   'POST /login': function (req, res) {
     var body = req.body;
     Usuario.findOne({ nombre: body.nombre }).exec(function (err, usuario) {
@@ -68,6 +69,14 @@ module.exports.routes = {
         return res.ok(data);
       }
     })
+    
+
+  },
+
+  '/comprobarconexion': function (req, res) {
+
+
+    return res.ok({mensaje: 'Conexión establecida'});
     
 
   },
