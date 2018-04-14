@@ -1,15 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 351:
+/***/ 296:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WelcomePageModule", function() { return WelcomePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NuevoproductoPageModule", function() { return NuevoproductoPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__welcome__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nuevoproducto__ = __webpack_require__(298);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,38 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var WelcomePageModule = (function () {
-    function WelcomePageModule() {
+var NuevoproductoPageModule = /** @class */ (function () {
+    function NuevoproductoPageModule() {
     }
-    WelcomePageModule = __decorate([
+    NuevoproductoPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__welcome__["a" /* WelcomePage */],
+                __WEBPACK_IMPORTED_MODULE_2__nuevoproducto__["a" /* NuevoproductoPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__welcome__["a" /* WelcomePage */]),
-                __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["b" /* TranslateModule */].forChild()
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__nuevoproducto__["a" /* NuevoproductoPage */]),
             ],
-            exports: [
-                __WEBPACK_IMPORTED_MODULE_3__welcome__["a" /* WelcomePage */]
-            ]
         })
-    ], WelcomePageModule);
-    return WelcomePageModule;
+    ], NuevoproductoPageModule);
+    return NuevoproductoPageModule;
 }());
 
-//# sourceMappingURL=welcome.module.js.map
+//# sourceMappingURL=nuevoproducto.module.js.map
 
 /***/ }),
 
-/***/ 371:
+/***/ 298:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WelcomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NuevoproductoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicio_servicio__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -62,32 +58,112 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 /**
- * The Welcome Page is a splash page that quickly describes the app,
- * and then directs the user to create an account or log in.
- * If you'd like to immediately put the user onto a login/signup page,
- * we recommend not using the Welcome page.
-*/
-var WelcomePage = (function () {
-    function WelcomePage(navCtrl) {
+ * Generated class for the NuevoproductoPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var NuevoproductoPage = /** @class */ (function () {
+    function NuevoproductoPage(navCtrl, navParams, servicio, formBuilder, alertCtrl, viewCtrl) {
         this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.servicio = servicio;
+        this.alertCtrl = alertCtrl;
+        this.viewCtrl = viewCtrl;
+        this.currentItems = [];
+        this.form2 = formBuilder.group({
+            name: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required]
+        });
+        this.validador = false;
+        this.form = formBuilder.group({
+            codigo: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+            nombre: [null, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+            marca: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+            categoria: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+            precio: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+            stock: ['1', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+            minimo: ['0', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+            unidad: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+            estado: ['1', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+        });
+        this.cargarCategorias();
+        this.cargarMarcas();
+        this.cargarUnidades();
     }
-    WelcomePage.prototype.login = function () {
-        this.navCtrl.push('LoginPage');
+    NuevoproductoPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad NuevoproductoPage');
     };
-    WelcomePage.prototype.signup = function () {
-        this.navCtrl.push('SignupPage');
+    NuevoproductoPage.prototype.cargarCategorias = function () {
+        var _this = this;
+        var seq = this.servicio.get("categoria?sort=nombre asc");
+        seq.subscribe(function (res) {
+            _this.categorias = res;
+        });
     };
-    WelcomePage = __decorate([
+    NuevoproductoPage.prototype.cargarMarcas = function () {
+        var _this = this;
+        var seq = this.servicio.get("marca?sort=nombre asc");
+        seq.subscribe(function (res) {
+            _this.marcas = res;
+        });
+    };
+    NuevoproductoPage.prototype.cargarUnidades = function () {
+        var _this = this;
+        var seq = this.servicio.get("unidad?sort=nombre asc");
+        seq.subscribe(function (res) {
+            _this.unidades = res;
+        });
+    };
+    NuevoproductoPage.prototype.registrar = function () {
+        var _this = this;
+        if (!this.form.valid) {
+            var alert_1 = this.alertCtrl.create({
+                title: 'Error!',
+                subTitle: 'Todos los campos son obligatorios',
+                buttons: ['OK']
+            });
+            alert_1.present();
+        }
+        else {
+            var seq = this.servicio.post('producto', this.form.value);
+            seq.subscribe(function (res) {
+                var alert = _this.alertCtrl.create({
+                    title: 'Éxito!',
+                    subTitle: 'Se guardo el producto satisfactoriamente',
+                    buttons: ['OK']
+                });
+                alert.present();
+                _this.viewCtrl.dismiss(res);
+            }, function (err) {
+                console.log(err);
+                var alert = _this.alertCtrl.create({
+                    title: 'Error!',
+                    subTitle: 'Comprueba que la información ingresada es correcta ',
+                    buttons: ['OK']
+                });
+                alert.present();
+                // this.viewCtrl.dismiss(this.form.value);
+            });
+        }
+    };
+    NuevoproductoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-welcome',template:/*ion-inline-start:"C:\Proyectos\HERAS\inventarioclient\src\pages\welcome\welcome.html"*/'<ion-content scroll="false">\n\n  <div class="splash-bg"></div>\n\n  <div class="splash-info">\n\n    <div class="splash-logo"></div>\n\n    <div class="splash-intro">\n\n      {{ \'WELCOME_INTRO\' | translate }}\n\n    </div>\n\n  </div>\n\n  <div padding>\n\n    <button ion-button block (click)="signup()">{{ \'SIGNUP\' | translate }}</button>\n\n    <button ion-button block (click)="login()" class="login">{{ \'LOGIN\' | translate }}</button>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Proyectos\HERAS\inventarioclient\src\pages\welcome\welcome.html"*/
+            selector: 'page-nuevoproducto',template:/*ion-inline-start:"C:\Proyectos\inventariocliente\src\pages\nuevoproducto\nuevoproducto.html"*/'<ion-content>\n\n  <div class="w3-container w3-blue">\n    <h3>Crear producto</h3>\n  </div>\n\n\n\n\n\n  <form class="w3-container" id="container" *ngIf="form" [formGroup]="form" (ngSubmit)="registrar()">\n\n    <label class="w3-text-blue">\n      <b>Código</b>\n    </label>\n    <input class="w3-input w3-border w3-round" placeholder="Código de barras del producto" autofocus formControlName="codigo"\n      type="text">\n\n    <label class="w3-text-blue">\n      <b>Nombre</b>\n    </label>\n    <input class="w3-input w3-border w3-round" placeholder="Nombre del producto" autofocus formControlName="nombre" type="text">\n\n    <label class="w3-text-blue">\n      <b>Unidad</b>\n    </label>\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="unidad">\n      <option value="" disabled selected>Elige una opción</option>\n      <option *ngFor="let unidad of unidades" value={{unidad.id}}>{{unidad.nombre}}</option>\n\n    </select>\n\n    <label class="w3-text-blue">\n      <b>Marca</b>\n    </label>\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="marca">\n      <option value="" disabled selected>Elige una opción</option>\n      <option *ngFor="let marca of marcas" value={{marca.id}}>{{marca.nombre}}</option>\n\n    </select>\n    <label class="w3-text-blue">\n      <b>Categoría</b>\n    </label>\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="categoria">\n      <option value="" disabled selected>Elige una opción</option>\n      <option *ngFor="let categoria of categorias" value={{categoria.id}}>{{categoria.nombre}}</option>\n\n    </select>\n\n    <label class="w3-text-blue">\n        <b>Precio</b>\n      </label>\n      <input class="w3-input w3-border w3-round" placeholder="Precio del producto" autofocus formControlName="precio" type="number">\n  \n      <label class="w3-text-blue">\n          <b>Stock inicial</b>\n        </label>\n        <input class="w3-input w3-border w3-round" placeholder="Stock inicial" autofocus formControlName="stock" type="number">\n  \n        <label class="w3-text-blue">\n            <b>Stock mínimo</b>\n          </label>\n          <input class="w3-input w3-border w3-round" placeholder="Stock mínimo" autofocus formControlName="minimo" type="number">\n      \n\n  </form>\n  <button ion-button (click)="registrar()">Guardar</button>\n  <button ion-button (click)="cancelar()">Cancelar</button>\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\inventariocliente\src\pages\nuevoproducto\nuevoproducto.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]])
-    ], WelcomePage);
-    return WelcomePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_servicio_servicio__["a" /* ServicioProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */]])
+    ], NuevoproductoPage);
+    return NuevoproductoPage;
 }());
 
-//# sourceMappingURL=welcome.js.map
+//# sourceMappingURL=nuevoproducto.js.map
 
 /***/ })
 

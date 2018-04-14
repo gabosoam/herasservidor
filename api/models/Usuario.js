@@ -9,10 +9,10 @@ module.exports = {
 
   attributes: {
     id : { type: 'integer', primaryKey:true, autoIncrement: true },
-
     nombre : { type: 'string', unique: true },
-
-    contrasena : { type: 'string' }
+    rol : { type: 'string' },
+    contrasena : { type: 'string' },
+   
   }
 };
 
