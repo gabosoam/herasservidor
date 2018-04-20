@@ -38,9 +38,7 @@ module.exports = {
   },
 
   afterDestroy: function (values, cb) {
-  
   console.log(values)
-
     Producto.query('UPDATE producto SET producto.stock=producto.stock+? WHERE producto.id=?',[values[0].reducir, values[0].producto] , function(err, rawResult) {
       if (err) {
         console.log(err)
@@ -49,7 +47,6 @@ module.exports = {
         console.log(rawResult)
         cb();
       }
-      
     });
   }
 };

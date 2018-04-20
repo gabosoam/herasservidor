@@ -67,7 +67,7 @@ var AgregarstockPage = /** @class */ (function () {
     };
     AgregarstockPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-agregarstock',template:/*ion-inline-start:"C:\Proyectos\inventariocliente\src\pages\agregarstock\agregarstock.html"*/'<ion-content>\n  <div class="w3-container w3-blue">\n    <h3>Agregar stock - {{nombre}}</h3>\n  </div>\n\n  <form id="container" [formGroup]="formCodigo" (ngSubmit)="gestionar()">\n\n    <div class="w3-container w3-row">\n      <div class="w3-col s12 m4 l4 w3-padding">\n          <label class="w3-text-blue">\n              <b>Unidad</b>\n            </label>\n            <select [(ngModel)]="unidad" class="w3-select w3-border w3-round-large w3-white w3-large" name="option" formControlName="unidad">\n              <option value="" disabled selected="true">Elige una opción</option>\n      \n              <option *ngFor="let item of items" value={{item.tamano}}>{{item.unidad.nombre}}</option>\n      \n            </select>\n\n\n    \n      </div>\n\n      <div class="w3-col s12 m4 l4 w3-padding">\n          <label class="w3-text-blue">\n              <b>Cantidad</b>\n            </label>\n            <input ng-focus="isFocused" class="w3-input w3-border w3-round-large w3-large" placeholder="Cantidad" autofocus formControlName="cantidad" type="number">\n      \n      \n      </div>\n\n      \n    </div>\n    <div class="w3-container w3-padding">\n        <button class="w3-btn w3-blue w3-round  ">Guardar</button>\n    </div>\n\n\n  </form>\n\n  <hr>\n  <ion-list>\n    <ion-list-header>\n      Stock detallado\n    </ion-list-header>\n    <ion-item *ngFor="let item of items">{{item.producto.stock * item.tamano}}   {{item.unidad.nombre}}</ion-item>\n  \n  </ion-list>\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\inventariocliente\src\pages\agregarstock\agregarstock.html"*/,
+            selector: 'page-agregarstock',template:/*ion-inline-start:"C:\Proyectos\herasclient2\src\pages\agregarstock\agregarstock.html"*/'<ion-content>\n\n  <div class="w3-container w3-blue">\n\n    <h3>Agregar stock - {{nombre}}</h3>\n\n  </div>\n\n\n\n  <form id="container" [formGroup]="formCodigo" (ngSubmit)="gestionar()">\n\n\n\n    <div class="w3-container w3-row">\n\n      <div class="w3-col s12 m4 l4 w3-padding">\n\n          <label class="w3-text-blue">\n\n              <b>Unidad</b>\n\n            </label>\n\n            <select [(ngModel)]="unidad" class="w3-select w3-border w3-round-large w3-white w3-large" name="option" formControlName="unidad">\n\n              <option value="" disabled selected="true">Elige una opción</option>\n\n      \n\n              <option *ngFor="let item of items" value={{item.tamano}}>{{item.unidad.nombre}}</option>\n\n      \n\n            </select>\n\n\n\n\n\n    \n\n      </div>\n\n\n\n      <div class="w3-col s12 m4 l4 w3-padding">\n\n          <label class="w3-text-blue">\n\n              <b>Cantidad</b>\n\n            </label>\n\n            <input ng-focus="isFocused" class="w3-input w3-border w3-round-large w3-large" placeholder="Cantidad" autofocus formControlName="cantidad" type="number">\n\n      \n\n      \n\n      </div>\n\n\n\n      \n\n    </div>\n\n    <div class="w3-container w3-padding">\n\n        <button class="w3-btn w3-blue w3-round  ">Guardar</button>\n\n    </div>\n\n\n\n\n\n  </form>\n\n\n\n  <hr>\n\n  <ion-list>\n\n    <ion-list-header>\n\n      Stock detallado\n\n    </ion-list-header>\n\n    <ion-item *ngFor="let item of items">{{(item.producto.stock * item.tamano).toFixed(2)}}   {{item.unidad.nombre}}</ion-item>\n\n  \n\n  </ion-list>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\herasclient2\src\pages\agregarstock\agregarstock.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -140,7 +140,7 @@ var BuscarproductoPage = /** @class */ (function () {
     };
     BuscarproductoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-buscarproducto',template:/*ion-inline-start:"C:\Proyectos\inventariocliente\src\pages\buscarproducto\buscarproducto.html"*/'<!--\n  Generated template for the BuscarproductoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n      <ion-searchbar placeholder="Ingresar el nombre de un producto" (ionInput)="getItems($event)"></ion-searchbar>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <table style="width: 100%; padding: 10px; border-radius: 25px" border="1">\n   \n        <tr>\n          \n          <th style="padding: 5px; text-align: center">Código</th>\n          <th style="padding: 5px; text-align: center">Producto</th>\n          <th style="padding: 5px; text-align: center">U.</th>\n         \n       \n\n          <th style="padding: 5px; text-align: center"></th>\n        </tr>\n        <tr *ngFor="let item of items">\n          <td  style="padding: 5px; text-align: center">{{item.codigo}}</td>\n          <td style="padding: 5px; text-align: center">{{item.nombre}}</td>\n          <td style="padding: 5px; text-align: center">{{item.unidad.nombre}}</td>\n         \n\n     \n          <td style="padding: 5px; text-align: center">\n            <button ion-button round icon-only small (click)="agregar(item)">\n              <ion-icon name="ios-arrow-down"></ion-icon>\n            </button>\n       \n          </td>\n        </tr>\n  \n  \n      </table>\n\n</ion-content>\n'/*ion-inline-end:"C:\Proyectos\inventariocliente\src\pages\buscarproducto\buscarproducto.html"*/,
+            selector: 'page-buscarproducto',template:/*ion-inline-start:"C:\Proyectos\herasclient2\src\pages\buscarproducto\buscarproducto.html"*/'<!--\n\n  Generated template for the BuscarproductoPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n      <ion-searchbar placeholder="Ingresar el nombre de un producto" (ionInput)="getItems($event)"></ion-searchbar>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <table style="width: 100%; padding: 10px; border-radius: 25px" border="1">\n\n   \n\n        <tr>\n\n          \n\n          <th style="padding: 5px; text-align: center">Código</th>\n\n          <th style="padding: 5px; text-align: center">Producto</th>\n\n          <th style="padding: 5px; text-align: center">U.</th>\n\n         \n\n       \n\n\n\n          <th style="padding: 5px; text-align: center"></th>\n\n        </tr>\n\n        <tr *ngFor="let item of items">\n\n          <td  style="padding: 5px; text-align: center">{{item.codigo}}</td>\n\n          <td style="padding: 5px; text-align: center">{{item.nombre}}</td>\n\n          <td style="padding: 5px; text-align: center">{{item.unidad.nombre}}</td>\n\n         \n\n\n\n     \n\n          <td style="padding: 5px; text-align: center">\n\n            <button ion-button round icon-only small (click)="agregar(item)">\n\n              <ion-icon name="ios-arrow-down"></ion-icon>\n\n            </button>\n\n       \n\n          </td>\n\n        </tr>\n\n  \n\n  \n\n      </table>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Proyectos\herasclient2\src\pages\buscarproducto\buscarproducto.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -230,7 +230,7 @@ var CantidadPage = /** @class */ (function () {
     };
     CantidadPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-cantidad',template:/*ion-inline-start:"C:\Proyectos\inventariocliente\src\pages\cantidad\cantidad.html"*/'<ion-content>\n  <div class="w3-container w3-blue">\n    <h3>Cantidad - {{nombre}}</h3>\n  </div>\n\n  <form id="container" [formGroup]="formCodigo" (ngSubmit)="gestionar()">\n\n    <div class="w3-container w3-row">\n      <div class="w3-col s12 m4 l4 w3-padding">\n        <label class="w3-text-blue">\n          <b>Unidad</b>\n        </label>\n        <select class="w3-select w3-border w3-round w3-white" name="option" [(ngModel)]="unidad" formControlName="unidad">\n\n\n          <option *ngFor="let item of items" value="{{item.id}}">{{item.unidad.nombre}}</option>\n\n        </select>\n      </div>\n\n      <div class="w3-col s12 m4 l4 w3-padding">\n        <label class="w3-text-blue">\n          <b>Cantidad</b>\n        </label>\n        <input class="w3-input w3-border w3-round" placeholder="Cantidad" autofocus formControlName="cantidad" type="number">\n\n\n      </div>\n\n\n    </div>\n    <div class="w3-container w3-padding">\n      <button class="w3-btn w3-blue w3-round  ">Guardar</button>\n    </div>\n\n\n  </form>\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\inventariocliente\src\pages\cantidad\cantidad.html"*/,
+            selector: 'page-cantidad',template:/*ion-inline-start:"C:\Proyectos\herasclient2\src\pages\cantidad\cantidad.html"*/'<ion-content>\n\n  <div class="w3-container w3-blue">\n\n    <h3>Cantidad - {{nombre}}</h3>\n\n  </div>\n\n\n\n  <form id="container" [formGroup]="formCodigo" (ngSubmit)="gestionar()">\n\n\n\n    <div class="w3-container w3-row">\n\n      <div class="w3-col s12 m4 l4 w3-padding">\n\n        <label class="w3-text-blue">\n\n          <b>Unidad</b>\n\n        </label>\n\n        <select class="w3-select w3-border w3-round w3-white" name="option" [(ngModel)]="unidad" formControlName="unidad">\n\n\n\n\n\n          <option *ngFor="let item of items" value="{{item.id}}">{{item.unidad.nombre}}</option>\n\n\n\n        </select>\n\n      </div>\n\n\n\n      <div class="w3-col s12 m4 l4 w3-padding">\n\n        <label class="w3-text-blue">\n\n          <b>Cantidad</b>\n\n        </label>\n\n        <input class="w3-input w3-border w3-round" placeholder="Cantidad" autofocus formControlName="cantidad" type="number">\n\n\n\n\n\n      </div>\n\n\n\n\n\n    </div>\n\n    <div class="w3-container w3-padding">\n\n      <button class="w3-btn w3-blue w3-round  ">Guardar</button>\n\n    </div>\n\n\n\n\n\n  </form>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\herasclient2\src\pages\cantidad\cantidad.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -249,15 +249,224 @@ var CantidadPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HistorialPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicio_servicio__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__ = __webpack_require__(34);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the HistorialPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var HistorialPage = /** @class */ (function () {
+    function HistorialPage(navCtrl, navParams, loadingCtrl, servicio, usuario) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.loadingCtrl = loadingCtrl;
+        this.servicio = servicio;
+        this.usuario = usuario;
+        this.usuarioLogueado = usuario.usuarioLogueado;
+        this.filtro = '1';
+        this.cargarFacturasHoy();
+    }
+    HistorialPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad HistorialPage');
+    };
+    HistorialPage.prototype.cargarFacturas = function () {
+        var _this = this;
+        var loader = this.loadingCtrl.create({
+            content: "Espere por favor.",
+        });
+        loader.present();
+        this.estado = 'Todas las ventas';
+        var seq = this.servicio.get('factura/todas');
+        seq.subscribe(function (res) {
+            _this.facturas = res;
+            var aux = 0;
+            for (var i = 0; i < res.length; i++) {
+                aux += res[i].rawtotal;
+            }
+            _this.total = aux.toFixed(2);
+            loader.dismiss();
+        });
+    };
+    HistorialPage.prototype.cargarFacturasHoy = function () {
+        var _this = this;
+        var loader = this.loadingCtrl.create({
+            content: "Espere por favor.",
+        });
+        loader.present();
+        this.estado = 'Ventas del día de hoy';
+        var seq = this.servicio.get('factura/deldia');
+        seq.subscribe(function (res) {
+            _this.facturas = res;
+            var aux = 0;
+            for (var i = 0; i < res.length; i++) {
+                aux += res[i].rawtotal;
+            }
+            _this.total = aux.toFixed(2);
+            loader.dismiss();
+        });
+    };
+    HistorialPage.prototype.cargarFacturasSemana = function () {
+        var _this = this;
+        var loader = this.loadingCtrl.create({
+            content: "Espere por favor.",
+        });
+        loader.present();
+        this.estado = 'Ventas de la semana';
+        var seq = this.servicio.get('factura/delasemana');
+        seq.subscribe(function (res) {
+            _this.facturas = res;
+            var aux = 0;
+            for (var i = 0; i < res.length; i++) {
+                aux += res[i].rawtotal;
+            }
+            _this.total = aux.toFixed(2);
+            loader.dismiss();
+        });
+    };
+    HistorialPage.prototype.cargarFacturasMes = function () {
+        var _this = this;
+        var loader = this.loadingCtrl.create({
+            content: "Espere por favor.",
+        });
+        loader.present();
+        this.estado = 'Ventas del mes';
+        var seq = this.servicio.get('factura/delmes');
+        seq.subscribe(function (res) {
+            _this.facturas = res;
+            var aux = 0;
+            for (var i = 0; i < res.length; i++) {
+                aux += res[i].rawtotal;
+            }
+            _this.total = aux.toFixed(2);
+            loader.dismiss();
+        });
+    };
+    HistorialPage.prototype.print = function () {
+        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+        mywindow.document.write('<html><head><title>' + document.title + '</title>');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write('<h1>' + this.estado + '</h1>');
+        mywindow.document.write(document.getElementById('boleta3').innerHTML);
+        mywindow.document.write('</body></html>');
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10*/
+        mywindow.print();
+        mywindow.close();
+        return true;
+    };
+    HistorialPage.prototype.filtrar = function () {
+        switch (this.filtro) {
+            case '':
+                break;
+            case "1":
+                this.cargarFacturasHoy();
+                break;
+            case "2":
+                this.cargarFacturasSemana();
+                break;
+            case "3":
+                this.cargarFacturasMes();
+                break;
+            case "4":
+                this.cargarFacturas();
+                break;
+            default:
+                break;
+        }
+    };
+    HistorialPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-historial',template:/*ion-inline-start:"C:\Proyectos\herasclient2\src\pages\historial\historial.html"*/'<ion-content>\n\n\n\n  <div\n\n  [class.w3-hide]=" usuarioLogueado.id.rol==\'usuario\' "\n\n  >\n\n\n\n\n\n\n\n    <div class="w3-container w3-light-gray">\n\n      <div class="w3-row">\n\n\n\n\n\n        <div class="w3-col w3-padding s12 m4 l4">\n\n          <!-- <button class="" ion-button (click)="crearProducto()">Crear un producto</button> -->\n\n          <!-- <button class="" ion-button (click)="todosProductos()">Todos los productos</button> -->\n\n          <!-- <button class="" ion-button color="danger" (click)="cargarCero()">Por acabarse</button> -->\n\n          <label class="w3-text-blue">\n\n            <b>Filtros rápidos</b>\n\n          </label>\n\n          <select class="w3-select w3-large w3-round-large" [(ngModel)]="filtro" (change)="filtrar()" name="option">\n\n            <option value="" selected>Selecciona un filtro...</option>\n\n            <option value="1">Hoy</option>\n\n            <option value="2">Esta semana</option>\n\n            <option value="3">Este mes</option>\n\n            <option value="4">Todo!</option>\n\n          </select>\n\n          <h3>Mostrando: {{estado}}</h3>\n\n        </div>\n\n        <div class="w3-col s12 m4 l4">\n\n          <label class="w3-text-blue">\n\n            <b>Acciones</b>\n\n            <br>\n\n            <br>\n\n          </label>\n\n          <button (click)="print()" class="w3-blue w3-round-large w3-large w3-button ">Imprimir</button>\n\n        </div>\n\n\n\n        <div class="w3-responsive">\n\n\n\n          <div class="w3-padding">\n\n            <h3>{{resultado}}</h3>\n\n          </div>\n\n\n\n        </div>\n\n\n\n\n\n      </div>\n\n\n\n\n\n\n\n\n\n    </div>\n\n\n\n    <table class="w3-table w3-bordered w3-large">\n\n\n\n      <tr class="w3-dark-gray">\n\n\n\n        <th>Número</th>\n\n        <th>Tipo</th>\n\n        <th>Fecha</th>\n\n        <th>Hora</th>\n\n        <th>Realizado por</th>\n\n        <th>Total</th>\n\n\n\n\n\n\n\n        <th>Acciones</th>\n\n      </tr>\n\n      <tr *ngFor="let factura of facturas">\n\n        <td>{{factura.id}}</td>\n\n        <td>{{factura.cliente}}</td>\n\n        <td>{{factura.fecha}}</td>\n\n        <td>{{factura.hora}}</td>\n\n        <td>{{factura.usuario}}</td>\n\n        <td>${{factura.total}}</td>\n\n        <td>\n\n\n\n          <!-- <button ion-button small icon-only color="danger" (click)="desactivarItem(factura)" round>\n\n            <ion-icon name="md-trash"></ion-icon>\n\n          </button> -->\n\n        </td>\n\n      </tr>\n\n      <tr>\n\n        <td></td>\n\n        <td></td>\n\n        <td></td>\n\n        <td></td>\n\n        <td></td>\n\n        <td class="w3-right">\n\n          <strong style="text-align: left">\n\n            <h2>Total:</h2>\n\n          </strong>\n\n        </td>\n\n        <td>\n\n          <h2>${{total}}</h2>\n\n        </td>\n\n      </tr>\n\n\n\n\n\n    </table>\n\n\n\n  </div>\n\n\n\n\n\n</ion-content>\n\n\n\n<div id="boleta3">\n\n  <table border="1" style="width: 100%">\n\n    <tr class="w3-dark-gray">\n\n\n\n      <th>Número</th>\n\n      <th>Tipo</th>\n\n      <th>Fecha</th>\n\n      <th>Hora</th>\n\n      <th>Realizado por</th>\n\n      <th>Total</th>\n\n\n\n    </tr>\n\n\n\n    <tr *ngFor="let factura of facturas">\n\n      <td>{{factura.id}}</td>\n\n      <td>{{factura.cliente}}</td>\n\n      <td>{{factura.fecha}}</td>\n\n      <td>{{factura.hora}}</td>\n\n      <td>{{factura.usuario}}</td>\n\n      <td>${{factura.total}}</td>\n\n\n\n    </tr>\n\n    <tr>\n\n      <td></td>\n\n      <td></td>\n\n      <td></td>\n\n      <td></td>\n\n\n\n      <td class="w3-right">\n\n        <strong style="text-align: left">\n\n          <h2>Total:</h2>\n\n        </strong>\n\n      </td>\n\n      <td>\n\n        <h2>${{total}}</h2>\n\n      </td>\n\n    </tr>\n\n\n\n  </table>\n\n</div>'/*ion-inline-end:"C:\Proyectos\herasclient2\src\pages\historial\historial.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_servicio_servicio__["a" /* ServicioProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__["a" /* UsuarioProvider */]])
+    ], HistorialPage);
+    return HistorialPage;
+}());
+
+//# sourceMappingURL=historial.js.map
+
+/***/ }),
+
+/***/ 107:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IniciarventaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the IniciarventaPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var IniciarventaPage = /** @class */ (function () {
+    function IniciarventaPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    IniciarventaPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad IniciarventaPage');
+    };
+    IniciarventaPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-iniciarventa',template:/*ion-inline-start:"C:\Proyectos\herasclient2\src\pages\iniciarventa\iniciarventa.html"*/'<!--\n\n  Generated template for the IniciarventaPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>iniciarventa</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <button>Iniciar venta</button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Proyectos\herasclient2\src\pages\iniciarventa\iniciarventa.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    ], IniciarventaPage);
+    return IniciarventaPage;
+}());
+
+//# sourceMappingURL=iniciarventa.js.map
+
+/***/ }),
+
+/***/ 108:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConsultaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_servicio_servicio__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_agregarstock_agregarstock__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_modificarproducto_modificarproducto__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__preciosproducto_preciosproducto__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_usuario_usuario__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_modificarproducto_modificarproducto__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__preciosproducto_preciosproducto__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_usuario_usuario__ = __webpack_require__(34);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -551,19 +760,25 @@ var ConsultaPage = /** @class */ (function () {
     };
     ConsultaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-consulta',template:/*ion-inline-start:"C:\Proyectos\inventariocliente\src\pages\consulta\consulta.html"*/'<ion-content class="">\n\n    <div class="w3-container ">\n        <h2>Consultas</h2>\n        <hr>\n      </div>\n \n  \n\n  <div class="w3-container w3-light-gray">\n    <div class="w3-row">\n      <div class="w3-col w3-padding s12 m4 l4">\n        <form id="container" [formGroup]="formCodigo" (ngSubmit)="buscarCodigo()">\n\n          <label class="w3-text-blue">\n            <b>Buscar por código</b>\n          </label>\n          <input class="w3-input w3-border w3-round-large w3-large" type="text" [(ngModel)]="codigo" autofocus formControlName="name"\n            placeholder="Buscar por código">\n\n\n        </form>\n      </div>\n      <div class="w3-col w3-padding s12 m4 l4">\n        <form style="max-width: 100" id="container" *ngIf="form" [formGroup]="form" (ngSubmit)="buscarPorNombre()">\n\n          <label class="w3-text-blue">\n            <b>Buscar por nombre</b>\n          </label>\n          <input class="w3-input w3-border w3-round-large w3-large" type="text" autofocus formControlName="name" placeholder="Buscar por nombre"\n            (ionInput)="saludar()">\n        </form>\n      </div>\n      <div class="w3-col w3-padding s12 m4 l4">\n        <!-- <button class="" ion-button (click)="crearProducto()">Crear un producto</button> -->\n        <!-- <button class="" ion-button (click)="todosProductos()">Todos los productos</button> -->\n        <!-- <button class="" ion-button color="danger" (click)="cargarCero()">Por acabarse</button> -->\n        <label class="w3-text-blue">\n          <b>Filtros rápidos</b>\n        </label>\n        <select class="w3-select w3-large w3-round-large" [(ngModel)]="filtro" (change)="filtrar()" name="option">\n          <option value="" selected>Selecciona un filtro...</option>\n          <option value="1">Productos sin stock</option>\n          <!-- <option value="2">Productos por terminarse</option> -->\n          <option value="3">Todos los productos</option>\n          <option value="4">Productos con precio cero</option>\n        </select>\n      </div>\n\n      <div class="w3-col w3-padding s12 m4 l4">\n        <!-- <button class="" ion-button (click)="crearProducto()">Crear un producto</button> -->\n        <!-- <button class="" ion-button (click)="todosProductos()">Todos los productos</button> -->\n        <!-- <button class="" ion-button color="danger" (click)="cargarCero()">Por acabarse</button> -->\n        <label class="w3-text-blue">\n          <b>Categorías</b>\n        </label>\n        <select class="w3-select w3-large w3-round-large" [(ngModel)]="filtroCategoria" (change)="cargarPorCategoria()" name="option">\n          <option value="" disabled selected>Selecciona una categoría...</option>\n          <option *ngFor="let categoria of categorias" value="{{categoria.id}}">{{categoria.nombre}} ({{categoria.productos.length}})</option>\n\n        </select>\n      </div>\n\n      <div class="w3-col w3-padding s12 m4 l4">\n\n        <label class="w3-text-blue">\n          <b>Marcas</b>\n        </label>\n        <select class="w3-select w3-large w3-round-large" name="option" [(ngModel)]="filtroMarca" (change)="cargarPorMarca()">\n          <option value="" disabled selected>Seleccione una marca...</option>\n          <option *ngFor="let marca of marcas" value="{{marca.id}}">{{marca.nombre}} ({{marca.productos.length}})</option>\n\n        </select>\n      </div>\n\n      <div class="w3-col w3-padding s12 m4 l4">\n        <div class="w3-row">\n          <div class="w3-col s12 m4 l4">\n            <label class="w3-text-blue">\n              <b>Acciones</b>\n            </label><br>\n            <button (click)="print()" class="w3-blue w3-round-large w3-button ">Imprimir</button>\n          </div>\n          <div\n          [class.w3-hide]=" usuarioLogueado.id.rol==\'usuario\' "\n          class="w3-col s12 m4 l4">\n            <label class="w3-text-blue">\n              <b>Acciones</b>\n            </label>\n            <button (click)="crearProducto()" class="w3-blue w3-round-large w3-button ">Nuevo producto</button>\n          </div>\n        </div>\n\n\n      </div>\n\n    </div>\n\n\n  </div>\n\n  <div class="">\n\n\n\n    <div class="w3-responsive">\n\n      <div class="w3-padding">\n        <h3>{{resultado}}</h3>\n      </div>\n      <table  class="w3-table w3-bordered w3-large">\n\n        <tr class="w3-dark-gray">\n\n          <th>Código</th>\n          <th>Producto</th>\n          <th>Unidad</th>\n          <th>Marca</th>\n          <th>Categoría</th>\n          <th>Precio</th>\n          <th>Stock</th>\n          <th>Mínimo</th>\n\n\n\n          <th\n          [class.w3-hide]=" usuarioLogueado.id.rol==\'usuario\' "\n          >Acciones</th>\n        </tr>\n        <tr *ngFor="let producto of productos">\n          <td overflow-scroll=" true ">\n            <input class="w3-input" readonly type="text" value="{{producto.codigo}}">\n          </td>\n          <td>{{producto.nombre}}</td>\n          <td>{{producto.unidad.nombre}}</td>\n          <td>{{producto.marca.nombre}}</td>\n          <td>{{producto.categoria.nombre}}</td>\n          <td>${{producto.precio}}</td>\n          <td [class.w3-orange]=" producto.minimo >=producto.stock " [class.w3-red]=" producto.stock <= 0 " [class.w3-green]=" producto.stock > producto.minimo ">\n            {{producto.stock}}\n          </td>\n          <td [class.w3-orange]=" producto.minimo >=producto.stock " [class.w3-red]=" producto.stock <= 0 " [class.w3-green]=" producto.stock > producto.minimo ">{{producto.minimo}}</td>\n\n\n\n\n          <td\n          [class.w3-hide]=" usuarioLogueado.id.rol==\'usuario\' "\n          >\n            <button ion-button round icon-only small (click)="agregarStock(producto)">\n              <ion-icon name="md-add"></ion-icon>\n            </button>\n            <button ion-button small icon-only color="secondary" (click)="modificarItem(producto)" round>\n              <ion-icon name="md-create"></ion-icon>\n            </button>\n            <button ion-button small icon-only color="light" (click)="listarPrecios(producto)" round>\n              <ion-icon name="logo-usd"></ion-icon>\n            </button>\n            <button ion-button small icon-only color="danger" (click)="desactivarItem(producto)" round>\n              <ion-icon name="md-trash"></ion-icon>\n            </button>\n          </td>\n        </tr>\n\n\n      </table>\n    </div>\n\n\n\n\n  </div>\n\n\n\n\n\n\n\n\n</ion-content>\n\n<div id="boleta" class="w3-responsive">\n\n    <div class="w3-padding">\n      <h3>{{resultado}}</h3>\n    </div>\n    <table class="w3-table " style="width: 100%"border="1">\n\n      <tr class="w3-dark-gray">\n\n        <th>Código</th>\n        <th>Producto</th>\n        <th>Unidad</th>\n        <th>Marca</th>\n        <th>Categoría</th>\n        <th>Precio</th>\n        <th>Stock</th>\n        <th>Mínimo</th>\n\n\n\n        <th>Comentario</th>\n      </tr>\n      <tr *ngFor="let producto of productos">\n        <td overflow-scroll=" true ">\n          {{producto.codigo}} \n        </td>\n        <td>{{producto.nombre}}</td>\n        <td>{{producto.unidad.nombre}}</td>\n        <td>{{producto.marca.nombre}}</td>\n        <td>{{producto.categoria.nombre}}</td>\n        <td>${{producto.precio}}</td>\n        <td [class.w3-orange]=" producto.minimo >=producto.stock " [class.w3-red]=" producto.stock <= 0 " [class.w3-green]=" producto.stock > producto.minimo ">\n          {{producto.stock}}\n        </td>\n        <td [class.w3-orange]=" producto.minimo >=producto.stock " [class.w3-red]=" producto.stock <= 0 " [class.w3-green]=" producto.stock > producto.minimo ">{{producto.minimo}}</td>\n\n\n\n\n        <td>\n         \n        </td>\n      </tr>\n\n\n    </table>\n  </div>\n\n'/*ion-inline-end:"C:\Proyectos\inventariocliente\src\pages\consulta\consulta.html"*/,
+            selector: 'page-consulta',template:/*ion-inline-start:"C:\Proyectos\herasclient2\src\pages\consulta\consulta.html"*/'<ion-content class="">\n\n\n\n    <div class="w3-container ">\n\n        <h2>Consultas</h2>\n\n        <hr>\n\n      </div>\n\n \n\n  \n\n\n\n  <div class="w3-container w3-light-gray">\n\n    <div class="w3-row">\n\n      <div class="w3-col w3-padding s12 m4 l4">\n\n        <form id="container" [formGroup]="formCodigo" (ngSubmit)="buscarCodigo()">\n\n\n\n          <label class="w3-text-blue">\n\n            <b>Buscar por código</b>\n\n          </label>\n\n          <input class="w3-input w3-border w3-round-large w3-large" type="text" [(ngModel)]="codigo" autofocus formControlName="name"\n\n            placeholder="Buscar por código">\n\n\n\n\n\n        </form>\n\n      </div>\n\n      <div class="w3-col w3-padding s12 m4 l4">\n\n        <form style="max-width: 100" id="container" *ngIf="form" [formGroup]="form" (ngSubmit)="buscarPorNombre()">\n\n\n\n          <label class="w3-text-blue">\n\n            <b>Buscar por nombre</b>\n\n          </label>\n\n          <input class="w3-input w3-border w3-round-large w3-large" type="text" autofocus formControlName="name" placeholder="Buscar por nombre"\n\n            (ionInput)="saludar()">\n\n        </form>\n\n      </div>\n\n      <div class="w3-col w3-padding s12 m4 l4">\n\n        <!-- <button class="" ion-button (click)="crearProducto()">Crear un producto</button> -->\n\n        <!-- <button class="" ion-button (click)="todosProductos()">Todos los productos</button> -->\n\n        <!-- <button class="" ion-button color="danger" (click)="cargarCero()">Por acabarse</button> -->\n\n        <label class="w3-text-blue">\n\n          <b>Filtros rápidos</b>\n\n        </label>\n\n        <select class="w3-select w3-large w3-round-large" [(ngModel)]="filtro" (change)="filtrar()" name="option">\n\n          <option value="" selected>Selecciona un filtro...</option>\n\n          <option value="1">Productos sin stock</option>\n\n          <!-- <option value="2">Productos por terminarse</option> -->\n\n          <option value="3">Todos los productos</option>\n\n          <option value="4">Productos con precio cero</option>\n\n        </select>\n\n      </div>\n\n\n\n      <div class="w3-col w3-padding s12 m4 l4">\n\n        <!-- <button class="" ion-button (click)="crearProducto()">Crear un producto</button> -->\n\n        <!-- <button class="" ion-button (click)="todosProductos()">Todos los productos</button> -->\n\n        <!-- <button class="" ion-button color="danger" (click)="cargarCero()">Por acabarse</button> -->\n\n        <label class="w3-text-blue">\n\n          <b>Categorías</b>\n\n        </label>\n\n        <select class="w3-select w3-large w3-round-large" [(ngModel)]="filtroCategoria" (change)="cargarPorCategoria()" name="option">\n\n          <option value="" disabled selected>Selecciona una categoría...</option>\n\n          <option *ngFor="let categoria of categorias" value="{{categoria.id}}">{{categoria.nombre}} ({{categoria.productos.length}})</option>\n\n\n\n        </select>\n\n      </div>\n\n\n\n      <div class="w3-col w3-padding s12 m4 l4">\n\n\n\n        <label class="w3-text-blue">\n\n          <b>Marcas</b>\n\n        </label>\n\n        <select class="w3-select w3-large w3-round-large" name="option" [(ngModel)]="filtroMarca" (change)="cargarPorMarca()">\n\n          <option value="" disabled selected>Seleccione una marca...</option>\n\n          <option *ngFor="let marca of marcas" value="{{marca.id}}">{{marca.nombre}} ({{marca.productos.length}})</option>\n\n\n\n        </select>\n\n      </div>\n\n\n\n      <div class="w3-col w3-padding s12 m4 l4">\n\n        <div class="w3-row">\n\n          <div class="w3-col s12 m4 l4">\n\n            <label class="w3-text-blue">\n\n              <b>Acciones</b>\n\n            </label><br>\n\n            <button (click)="print()" class="w3-blue w3-round-large w3-button ">Imprimir</button>\n\n          </div>\n\n          <div\n\n          [class.w3-hide]=" usuarioLogueado.id.rol==\'usuario\' "\n\n          class="w3-col s12 m4 l4">\n\n            <label class="w3-text-blue">\n\n              <b>Acciones</b>\n\n            </label>\n\n            <button (click)="crearProducto()" class="w3-blue w3-round-large w3-button ">Nuevo producto</button>\n\n          </div>\n\n        </div>\n\n\n\n\n\n      </div>\n\n\n\n    </div>\n\n\n\n\n\n  </div>\n\n\n\n  <div class="">\n\n\n\n\n\n\n\n    <div class="w3-responsive">\n\n\n\n      <div class="w3-padding">\n\n        <h3>{{resultado}}</h3>\n\n      </div>\n\n      <table  class="w3-table w3-bordered w3-large">\n\n\n\n        <tr class="w3-dark-gray">\n\n\n\n          <th>Código</th>\n\n          <th>Producto</th>\n\n          <th>Unidad</th>\n\n          <th>Marca</th>\n\n          <th>Categoría</th>\n\n          <th>Precio</th>\n\n          <th>Stock</th>\n\n          <th>Mínimo</th>\n\n\n\n\n\n\n\n          <th\n\n          [class.w3-hide]=" usuarioLogueado.id.rol==\'usuario\' "\n\n          >Acciones</th>\n\n        </tr>\n\n        <tr *ngFor="let producto of productos">\n\n          <td overflow-scroll=" true ">\n\n            <input class="w3-input" readonly type="text" value="{{producto.codigo}}">\n\n          </td>\n\n          <td>{{producto.nombre}}</td>\n\n          <td>{{producto.unidad.nombre}}</td>\n\n          <td>{{producto.marca.nombre}}</td>\n\n          <td>{{producto.categoria.nombre}}</td>\n\n          <td>${{(producto.precio).toFixed(2)}}</td>\n\n          <td [class.w3-orange]=" producto.minimo >=producto.stock " [class.w3-red]=" producto.stock <= 0 " [class.w3-green]=" producto.stock > producto.minimo ">\n\n            {{(producto.stock).toFixed(2)}}\n\n          </td>\n\n          <td [class.w3-orange]=" producto.minimo >=producto.stock " [class.w3-red]=" producto.stock <= 0 " [class.w3-green]=" producto.stock > producto.minimo ">{{producto.minimo}}</td>\n\n\n\n\n\n\n\n\n\n          <td\n\n          [class.w3-hide]=" usuarioLogueado.id.rol==\'usuario\' "\n\n          >\n\n            <button ion-button round icon-only small (click)="agregarStock(producto)">\n\n              <ion-icon name="md-add"></ion-icon>\n\n            </button>\n\n            <button ion-button small icon-only color="secondary" (click)="modificarItem(producto)" round>\n\n              <ion-icon name="md-create"></ion-icon>\n\n            </button>\n\n            <button ion-button small icon-only color="light" (click)="listarPrecios(producto)" round>\n\n              <ion-icon name="logo-usd"></ion-icon>\n\n            </button>\n\n            <button ion-button small icon-only color="danger" (click)="desactivarItem(producto)" round>\n\n              <ion-icon name="md-trash"></ion-icon>\n\n            </button>\n\n          </td>\n\n        </tr>\n\n\n\n\n\n      </table>\n\n    </div>\n\n\n\n\n\n\n\n\n\n  </div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</ion-content>\n\n\n\n<div id="boleta" class="w3-responsive">\n\n\n\n    <div class="w3-padding">\n\n      <h3>{{resultado}}</h3>\n\n    </div>\n\n    <table class="w3-table " style="width: 100%"border="1">\n\n\n\n      <tr class="w3-dark-gray">\n\n\n\n        <th>Código</th>\n\n        <th>Producto</th>\n\n        <th>Unidad</th>\n\n        <th>Marca</th>\n\n        <th>Categoría</th>\n\n        <th>Precio</th>\n\n        <th>Stock</th>\n\n        <th>Mínimo</th>\n\n\n\n\n\n\n\n        <th>Comentario</th>\n\n      </tr>\n\n      <tr *ngFor="let producto of productos">\n\n        <td overflow-scroll=" true ">\n\n          {{producto.codigo}} \n\n        </td>\n\n        <td>{{producto.nombre}}</td>\n\n        <td>{{producto.unidad.nombre}}</td>\n\n        <td>{{producto.marca.nombre}}</td>\n\n        <td>{{producto.categoria.nombre}}</td>\n\n        <td>${{producto.precio}}</td>\n\n        <td [class.w3-orange]=" producto.minimo >=producto.stock " [class.w3-red]=" producto.stock <= 0 " [class.w3-green]=" producto.stock > producto.minimo ">\n\n          {{producto.stock}}\n\n        </td>\n\n        <td [class.w3-orange]=" producto.minimo >=producto.stock " [class.w3-red]=" producto.stock <= 0 " [class.w3-green]=" producto.stock > producto.minimo ">{{producto.minimo}}</td>\n\n\n\n\n\n\n\n\n\n        <td>\n\n         \n\n        </td>\n\n      </tr>\n\n\n\n\n\n    </table>\n\n  </div>\n\n\n\n'/*ion-inline-end:"C:\Proyectos\herasclient2\src\pages\consulta\consulta.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_servicio_servicio__["a" /* ServicioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_servicio_servicio__["a" /* ServicioProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_7__providers_usuario_usuario__["a" /* UsuarioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_usuario_usuario__["a" /* UsuarioProvider */]) === "function" && _h || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_servicio_servicio__["a" /* ServicioProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_usuario_usuario__["a" /* UsuarioProvider */]])
     ], ConsultaPage);
     return ConsultaPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h;
 }());
 
 //# sourceMappingURL=consulta.js.map
 
 /***/ }),
 
-/***/ 107:
+/***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -654,7 +869,7 @@ var ModificarproductoPage = /** @class */ (function () {
     ], ModificarproductoPage.prototype, "fileInput", void 0);
     ModificarproductoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-modificarproducto',template:/*ion-inline-start:"C:\Proyectos\inventariocliente\src\pages\modificarproducto\modificarproducto.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ producto.nombre }}</ion-title>\n\n\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <form class="w3-margin" *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">\n\n    <label class="w3-text-blue">\n      <b>Código</b>\n    </label>\n    <input readonly class="w3-input w3-border w3-round" placeholder="Código de barras del producto" autofocus formControlName="codigo"\n      type="text">\n\n    <label class="w3-text-blue">\n      <b>Nombre</b>\n    </label>\n    <input class="w3-input w3-border w3-round" placeholder="Nombre del producto" autofocus formControlName="nombre" type="text">\n\n    <label class="w3-text-blue">\n      <b>Unidad</b>\n    </label>\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="unidad">\n      <option value="" disabled selected>Elige una opción</option>\n      <option *ngFor="let unidad of unidades" value={{unidad.id}}>{{unidad.nombre}}</option>\n\n    </select>\n\n    <label class="w3-text-blue">\n      <b>Marca</b>\n    </label>\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="marca">\n      <option value="" disabled selected>Elige una opción</option>\n      <option *ngFor="let marca of marcas" value={{marca.id}}>{{marca.nombre}}</option>\n\n    </select>\n    <label class="w3-text-blue">\n      <b>Categoría</b>\n    </label>\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="categoria">\n      <option value="" disabled selected>Elige una opción</option>\n      <option *ngFor="let categoria of categorias" value={{categoria.id}}>{{categoria.nombre}}</option>\n\n    </select>\n\n    <label class="w3-text-blue">\n      <b>Precio</b>\n    </label>\n    <input class="w3-input w3-border w3-round" placeholder="Precio del producto" autofocus formControlName="precio" type="number">\n\n\n    <label class="w3-text-blue">\n      <b>Stock mínimo</b>\n    </label>\n    <input class="w3-input w3-border w3-round" placeholder="Stock mínimo" autofocus formControlName="minimo" type="number">\n\n\n\n\n  </form>\n\n  <ion-col class="w3-margin" col-3>\n    <button ion-button (click)="modificarProducto()">Guardar</button>\n  </ion-col>\n</ion-content>'/*ion-inline-end:"C:\Proyectos\inventariocliente\src\pages\modificarproducto\modificarproducto.html"*/,
+            selector: 'page-modificarproducto',template:/*ion-inline-start:"C:\Proyectos\herasclient2\src\pages\modificarproducto\modificarproducto.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ producto.nombre }}</ion-title>\n\n\n\n\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <form class="w3-margin" *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Código</b>\n\n    </label>\n\n    <input readonly class="w3-input w3-border w3-round" placeholder="Código de barras del producto" autofocus formControlName="codigo"\n\n      type="text">\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Nombre</b>\n\n    </label>\n\n    <input class="w3-input w3-border w3-round" placeholder="Nombre del producto" autofocus formControlName="nombre" type="text">\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Unidad</b>\n\n    </label>\n\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="unidad">\n\n      <option value="" disabled selected>Elige una opción</option>\n\n      <option *ngFor="let unidad of unidades" value={{unidad.id}}>{{unidad.nombre}}</option>\n\n\n\n    </select>\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Marca</b>\n\n    </label>\n\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="marca">\n\n      <option value="" disabled selected>Elige una opción</option>\n\n      <option *ngFor="let marca of marcas" value={{marca.id}}>{{marca.nombre}}</option>\n\n\n\n    </select>\n\n    <label class="w3-text-blue">\n\n      <b>Categoría</b>\n\n    </label>\n\n    <select class="w3-select w3-border w3-round w3-white" name="option" formControlName="categoria">\n\n      <option value="" disabled selected>Elige una opción</option>\n\n      <option *ngFor="let categoria of categorias" value={{categoria.id}}>{{categoria.nombre}}</option>\n\n\n\n    </select>\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Precio</b>\n\n    </label>\n\n    <input class="w3-input w3-border w3-round" placeholder="Precio del producto" autofocus formControlName="precio" type="number">\n\n\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Stock mínimo</b>\n\n    </label>\n\n    <input class="w3-input w3-border w3-round" placeholder="Stock mínimo" autofocus formControlName="minimo" type="number">\n\n\n\n\n\n\n\n\n\n  </form>\n\n\n\n  <ion-col class="w3-margin" col-3>\n\n    <button ion-button (click)="modificarProducto()">Guardar</button>\n\n  </ion-col>\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\herasclient2\src\pages\modificarproducto\modificarproducto.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -669,7 +884,7 @@ var ModificarproductoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 108:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -802,7 +1017,7 @@ var PreciosproductoPage = /** @class */ (function () {
     };
     PreciosproductoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-preciosproducto',template:/*ion-inline-start:"C:\Proyectos\inventariocliente\src\pages\preciosproducto\preciosproducto.html"*/'<!--\n  Generated template for the PrecioPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>LISTA DE PRECIOS - {{prod.unidad.nombre}} {{prod.nombre}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form id="container" [formGroup]="formCodigo" (ngSubmit)="gestionar()">\n    <ion-input [(ngModel)]="id" type="hidden" value="" formControlName="id"></ion-input>\n\n    <label class="w3-text-blue">\n      <b>Unidad</b>\n    </label>\n    <select class="w3-select w3-border w3-round w3-white" name="option" [(ngModel)]="unidad" formControlName="unidad">\n      <option value="" disabled selected>Elige una opción</option>\n      <option *ngFor="let unidad of unidades" value={{unidad.id}}>{{unidad.nombre}}</option>\n\n    </select>\n\n    <label class="w3-text-blue">\n      <b>Precio</b>\n    </label>\n    <input class="w3-input w3-border w3-round" [(ngModel)]="precio" placeholder="Precio" autofocus formControlName="precio" type="number">\n\n\n    <label class="w3-text-blue">\n        <b>Tamaño</b>\n      </label>\n      <input class="w3-input w3-border w3-round" [(ngModel)]="tamano" placeholder="Tamaño" autofocus formControlName="tamano" type="number">\n  \n\n      <button ion-button>Guardar</button>\n  </form>\n  <table style="width: 100%; padding: 10px; border-radius: 25px" border="1">\n\n    <tr>\n\n      <th style="padding: 5px; text-align: center">Unidad</th>\n      <th style="padding: 5px; text-align: center">Precio</th>\n      <th style="padding: 5px; text-align: center">Tamaño</th>\n\n\n\n      <th style="padding: 5px; text-align: center"></th>\n    </tr>\n    <tr *ngFor="let item of items">\n      <td style="padding: 5px; text-align: center">{{item.unidad.nombre}}</td>\n      <td style="padding: 5px; text-align: center">${{item.precio}}</td>\n      <td style="padding: 5px; text-align: center">{{item.tamano}}</td>\n\n\n\n      <td style="padding: 5px; text-align: center">\n        <button ion-button round icon-only small color="secondary" (click)="editar(item)">\n          <ion-icon name="md-create"></ion-icon>\n        </button>\n\n        <button ion-button round icon-only small color="danger" (click)="eliminar(item)">\n          <ion-icon name="md-trash"></ion-icon>\n        </button>\n\n      </td>\n    </tr>\n\n\n  </table>\n\n  <ion-fab top right edge (click)="nuevo()">\n    <button ion-fab mini>\n      <ion-icon name="add" (click)="nuevo()"></ion-icon>\n    </button>\n\n  </ion-fab>\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\inventariocliente\src\pages\preciosproducto\preciosproducto.html"*/,
+            selector: 'page-preciosproducto',template:/*ion-inline-start:"C:\Proyectos\herasclient2\src\pages\preciosproducto\preciosproducto.html"*/'<!--\n\n  Generated template for the PrecioPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>LISTA DE PRECIOS - {{prod.unidad.nombre}} {{prod.nombre}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <form id="container" [formGroup]="formCodigo" (ngSubmit)="gestionar()">\n\n    <ion-input [(ngModel)]="id" type="hidden" value="" formControlName="id"></ion-input>\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Unidad</b>\n\n    </label>\n\n    <select class="w3-select w3-border w3-round w3-white" name="option" [(ngModel)]="unidad" formControlName="unidad">\n\n      <option value="" disabled selected>Elige una opción</option>\n\n      <option *ngFor="let unidad of unidades" value={{unidad.id}}>{{unidad.nombre}}</option>\n\n\n\n    </select>\n\n\n\n    <label class="w3-text-blue">\n\n      <b>Precio</b>\n\n    </label>\n\n    <input class="w3-input w3-border w3-round" [(ngModel)]="precio" placeholder="Precio" autofocus formControlName="precio" type="number">\n\n\n\n\n\n    <label class="w3-text-blue">\n\n        <b>Tamaño</b>\n\n      </label>\n\n      <input class="w3-input w3-border w3-round" [(ngModel)]="tamano" placeholder="Tamaño" autofocus formControlName="tamano" type="number">\n\n  \n\n\n\n      <button ion-button>Guardar</button>\n\n  </form>\n\n  <table style="width: 100%; padding: 10px; border-radius: 25px" border="1">\n\n\n\n    <tr>\n\n\n\n      <th style="padding: 5px; text-align: center">Unidad</th>\n\n      <th style="padding: 5px; text-align: center">Precio</th>\n\n      <th style="padding: 5px; text-align: center">Tamaño</th>\n\n\n\n\n\n\n\n      <th style="padding: 5px; text-align: center"></th>\n\n    </tr>\n\n    <tr *ngFor="let item of items">\n\n      <td style="padding: 5px; text-align: center">{{item.unidad.nombre}}</td>\n\n      <td style="padding: 5px; text-align: center">${{item.precio}}</td>\n\n      <td style="padding: 5px; text-align: center">{{item.tamano}}</td>\n\n\n\n\n\n\n\n      <td style="padding: 5px; text-align: center">\n\n        <button ion-button round icon-only small color="secondary" (click)="editar(item)">\n\n          <ion-icon name="md-create"></ion-icon>\n\n        </button>\n\n\n\n        <button ion-button round icon-only small color="danger" (click)="eliminar(item)">\n\n          <ion-icon name="md-trash"></ion-icon>\n\n        </button>\n\n\n\n      </td>\n\n    </tr>\n\n\n\n\n\n  </table>\n\n\n\n  <ion-fab top right edge (click)="nuevo()">\n\n    <button ion-fab mini>\n\n      <ion-icon name="add" (click)="nuevo()"></ion-icon>\n\n    </button>\n\n\n\n  </ion-fab>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\herasclient2\src\pages\preciosproducto\preciosproducto.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -813,215 +1028,6 @@ var PreciosproductoPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=preciosproducto.js.map
-
-/***/ }),
-
-/***/ 109:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HistorialPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicio_servicio__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__ = __webpack_require__(42);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Generated class for the HistorialPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var HistorialPage = /** @class */ (function () {
-    function HistorialPage(navCtrl, navParams, loadingCtrl, servicio, usuario) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.loadingCtrl = loadingCtrl;
-        this.servicio = servicio;
-        this.usuario = usuario;
-        this.usuarioLogueado = usuario.usuarioLogueado;
-        this.filtro = '1';
-        this.cargarFacturasHoy();
-    }
-    HistorialPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad HistorialPage');
-    };
-    HistorialPage.prototype.cargarFacturas = function () {
-        var _this = this;
-        var loader = this.loadingCtrl.create({
-            content: "Espere por favor.",
-        });
-        loader.present();
-        this.estado = 'Todas las ventas';
-        var seq = this.servicio.get('factura/todas');
-        seq.subscribe(function (res) {
-            _this.facturas = res;
-            var aux = 0;
-            for (var i = 0; i < res.length; i++) {
-                aux += res[i].rawtotal;
-            }
-            _this.total = aux.toFixed(2);
-            loader.dismiss();
-        });
-    };
-    HistorialPage.prototype.cargarFacturasHoy = function () {
-        var _this = this;
-        var loader = this.loadingCtrl.create({
-            content: "Espere por favor.",
-        });
-        loader.present();
-        this.estado = 'Ventas del día de hoy';
-        var seq = this.servicio.get('factura/deldia');
-        seq.subscribe(function (res) {
-            _this.facturas = res;
-            var aux = 0;
-            for (var i = 0; i < res.length; i++) {
-                aux += res[i].rawtotal;
-            }
-            _this.total = aux.toFixed(2);
-            loader.dismiss();
-        });
-    };
-    HistorialPage.prototype.cargarFacturasSemana = function () {
-        var _this = this;
-        var loader = this.loadingCtrl.create({
-            content: "Espere por favor.",
-        });
-        loader.present();
-        this.estado = 'Ventas de la semana';
-        var seq = this.servicio.get('factura/delasemana');
-        seq.subscribe(function (res) {
-            _this.facturas = res;
-            var aux = 0;
-            for (var i = 0; i < res.length; i++) {
-                aux += res[i].rawtotal;
-            }
-            _this.total = aux.toFixed(2);
-            loader.dismiss();
-        });
-    };
-    HistorialPage.prototype.cargarFacturasMes = function () {
-        var _this = this;
-        var loader = this.loadingCtrl.create({
-            content: "Espere por favor.",
-        });
-        loader.present();
-        this.estado = 'Ventas del mes';
-        var seq = this.servicio.get('factura/delmes');
-        seq.subscribe(function (res) {
-            _this.facturas = res;
-            var aux = 0;
-            for (var i = 0; i < res.length; i++) {
-                aux += res[i].rawtotal;
-            }
-            _this.total = aux.toFixed(2);
-            loader.dismiss();
-        });
-    };
-    HistorialPage.prototype.print = function () {
-        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
-        mywindow.document.write('<html><head><title>' + document.title + '</title>');
-        mywindow.document.write('</head><body >');
-        mywindow.document.write('<h1>' + this.estado + '</h1>');
-        mywindow.document.write(document.getElementById('boleta3').innerHTML);
-        mywindow.document.write('</body></html>');
-        mywindow.document.close(); // necessary for IE >= 10
-        mywindow.focus(); // necessary for IE >= 10*/
-        mywindow.print();
-        mywindow.close();
-        return true;
-    };
-    HistorialPage.prototype.filtrar = function () {
-        switch (this.filtro) {
-            case '':
-                break;
-            case "1":
-                this.cargarFacturasHoy();
-                break;
-            case "2":
-                this.cargarFacturasSemana();
-                break;
-            case "3":
-                this.cargarFacturasMes();
-                break;
-            case "4":
-                this.cargarFacturas();
-                break;
-            default:
-                break;
-        }
-    };
-    HistorialPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-historial',template:/*ion-inline-start:"C:\Proyectos\inventariocliente\src\pages\historial\historial.html"*/'<ion-content>\n\n  <div\n  [class.w3-hide]=" usuarioLogueado.id.rol==\'usuario\' "\n  >\n\n\n\n    <div class="w3-container w3-light-gray">\n      <div class="w3-row">\n\n\n        <div class="w3-col w3-padding s12 m4 l4">\n          <!-- <button class="" ion-button (click)="crearProducto()">Crear un producto</button> -->\n          <!-- <button class="" ion-button (click)="todosProductos()">Todos los productos</button> -->\n          <!-- <button class="" ion-button color="danger" (click)="cargarCero()">Por acabarse</button> -->\n          <label class="w3-text-blue">\n            <b>Filtros rápidos</b>\n          </label>\n          <select class="w3-select w3-large w3-round-large" [(ngModel)]="filtro" (change)="filtrar()" name="option">\n            <option value="" selected>Selecciona un filtro...</option>\n            <option value="1">Hoy</option>\n            <option value="2">Esta semana</option>\n            <option value="3">Este mes</option>\n            <option value="4">Todo!</option>\n          </select>\n          <h3>Mostrando: {{estado}}</h3>\n        </div>\n        <div class="w3-col s12 m4 l4">\n          <label class="w3-text-blue">\n            <b>Acciones</b>\n            <br>\n            <br>\n          </label>\n          <button (click)="print()" class="w3-blue w3-round-large w3-large w3-button ">Imprimir</button>\n        </div>\n\n        <div class="w3-responsive">\n\n          <div class="w3-padding">\n            <h3>{{resultado}}</h3>\n          </div>\n\n        </div>\n\n\n      </div>\n\n\n\n\n    </div>\n\n    <table class="w3-table w3-bordered w3-large">\n\n      <tr class="w3-dark-gray">\n\n        <th>Número</th>\n        <th>Tipo</th>\n        <th>Fecha</th>\n        <th>Hora</th>\n        <th>Realizado por</th>\n        <th>Total</th>\n\n\n\n        <th>Acciones</th>\n      </tr>\n      <tr *ngFor="let factura of facturas">\n        <td>{{factura.id}}</td>\n        <td>{{factura.cliente}}</td>\n        <td>{{factura.fecha}}</td>\n        <td>{{factura.hora}}</td>\n        <td>{{factura.usuario}}</td>\n        <td>${{factura.total}}</td>\n        <td>\n\n          <!-- <button ion-button small icon-only color="danger" (click)="desactivarItem(factura)" round>\n            <ion-icon name="md-trash"></ion-icon>\n          </button> -->\n        </td>\n      </tr>\n      <tr>\n        <td></td>\n        <td></td>\n        <td></td>\n        <td></td>\n        <td></td>\n        <td class="w3-right">\n          <strong style="text-align: left">\n            <h2>Total:</h2>\n          </strong>\n        </td>\n        <td>\n          <h2>${{total}}</h2>\n        </td>\n      </tr>\n\n\n    </table>\n\n  </div>\n\n\n</ion-content>\n\n<div id="boleta3">\n  <table border="1" style="width: 100%">\n    <tr class="w3-dark-gray">\n\n      <th>Número</th>\n      <th>Tipo</th>\n      <th>Fecha</th>\n      <th>Hora</th>\n      <th>Realizado por</th>\n      <th>Total</th>\n\n    </tr>\n\n    <tr *ngFor="let factura of facturas">\n      <td>{{factura.id}}</td>\n      <td>{{factura.cliente}}</td>\n      <td>{{factura.fecha}}</td>\n      <td>{{factura.hora}}</td>\n      <td>{{factura.usuario}}</td>\n      <td>${{factura.total}}</td>\n\n    </tr>\n    <tr>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n\n      <td class="w3-right">\n        <strong style="text-align: left">\n          <h2>Total:</h2>\n        </strong>\n      </td>\n      <td>\n        <h2>${{total}}</h2>\n      </td>\n    </tr>\n\n  </table>\n</div>'/*ion-inline-end:"C:\Proyectos\inventariocliente\src\pages\historial\historial.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_servicio_servicio__["a" /* ServicioProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__["a" /* UsuarioProvider */]])
-    ], HistorialPage);
-    return HistorialPage;
-}());
-
-//# sourceMappingURL=historial.js.map
-
-/***/ }),
-
-/***/ 110:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IniciarventaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the IniciarventaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var IniciarventaPage = /** @class */ (function () {
-    function IniciarventaPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    IniciarventaPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad IniciarventaPage');
-    };
-    IniciarventaPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-iniciarventa',template:/*ion-inline-start:"C:\Proyectos\inventariocliente\src\pages\iniciarventa\iniciarventa.html"*/'<!--\n  Generated template for the IniciarventaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>iniciarventa</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <button>Iniciar venta</button>\n\n</ion-content>\n'/*ion-inline-end:"C:\Proyectos\inventariocliente\src\pages\iniciarventa\iniciarventa.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-    ], IniciarventaPage);
-    return IniciarventaPage;
-}());
-
-//# sourceMappingURL=iniciarventa.js.map
 
 /***/ }),
 
@@ -1036,7 +1042,7 @@ var IniciarventaPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_servicio_servicio__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cantidad_cantidad__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__buscarproducto_buscarproducto__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_usuario_usuario__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_usuario_usuario__ = __webpack_require__(34);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1080,10 +1086,19 @@ var VentaPage = /** @class */ (function () {
         this.refrescar();
     }
     VentaPage.prototype.ionViewDidLoad = function () {
+        this.enviarFoco();
+    };
+    VentaPage.prototype.enviarFoco = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.elementRef.nativeElement.focus();
+        }, 150);
     };
     VentaPage.prototype.refrescar = function () {
         var _this = this;
         var data = [];
+        this.vuelto = null;
+        this.recibido = null;
         this.detalles = data;
         this.servicio.post('factura', { usuario: this.usuarioLogueado.id.nombre }).subscribe(function (res) {
             _this.factura = res;
@@ -1094,6 +1109,7 @@ var VentaPage = /** @class */ (function () {
             var fecha = new Date(_this.factura.createdAt);
             _this.fecha = fecha.getDay() + "/" + fecha.getMonth() + "/" + fecha.getFullYear();
         });
+        this.enviarFoco();
     };
     VentaPage.prototype.obtenerDetalles = function (factura) {
         var _this = this;
@@ -1104,6 +1120,7 @@ var VentaPage = /** @class */ (function () {
         seq.subscribe(function (res) {
             _this.detalles = res;
             _this.calcularTotal();
+            _this.enviarFoco();
             // If the API returned a successful response, mark the user as logged in
             if (res.status == 'success') {
             }
@@ -1123,8 +1140,10 @@ var VentaPage = /** @class */ (function () {
         this.total = aux.toFixed(2);
     };
     VentaPage.prototype.cambiarCliente = function () {
+        var _this = this;
         var seq = this.servicio.put('factura/' + this.factura.id, { cliente: this.cliente });
         seq.subscribe(function (res) {
+            _this.enviarFoco();
         }, function (error) {
         });
     };
@@ -1148,7 +1167,7 @@ var VentaPage = /** @class */ (function () {
                             reducir: data.cantidad / data.precio.tamano
                         };
                         if (data.cantidad / data.precio.tamano > resultado[0].stock) {
-                            var confirm = _this.alertCtrl.create({
+                            var confirm_1 = _this.alertCtrl.create({
                                 title: 'Atención!',
                                 message: 'Tienes menos stock del solicitado. Deseas continuar?',
                                 buttons: [
@@ -1167,7 +1186,7 @@ var VentaPage = /** @class */ (function () {
                                     }
                                 ]
                             });
-                            confirm.present();
+                            confirm_1.present();
                         }
                         else {
                             _this.servicio.post('detalle/', detalle).subscribe(function (res) {
@@ -1236,15 +1255,15 @@ var VentaPage = /** @class */ (function () {
     VentaPage.prototype.comprobante = function () {
         var _this = this;
         if (this.total == 0) {
-            var alert = this.alertCtrl.create({
+            var alert_1 = this.alertCtrl.create({
                 title: 'Alerta!',
                 subTitle: JSON.stringify('No se puede imprimir un comprobante sin detalle '),
                 buttons: ['OK']
             });
-            alert.present();
+            alert_1.present();
         }
         else {
-            var confirm = this.alertCtrl.create({
+            var confirm_2 = this.alertCtrl.create({
                 title: 'Desea continuar?',
                 message: 'Al cerrar la venta no podrás agregar o quitar productos',
                 buttons: [
@@ -1262,21 +1281,21 @@ var VentaPage = /** @class */ (function () {
                     }
                 ]
             });
-            confirm.present();
+            confirm_2.present();
         }
     };
     VentaPage.prototype.sincomprobante = function () {
         var _this = this;
         if (this.total == 0) {
-            var alert = this.alertCtrl.create({
+            var alert_2 = this.alertCtrl.create({
                 title: 'Alerta!',
                 subTitle: JSON.stringify('No se puede imprimir un comprobante sin detalle '),
                 buttons: ['OK']
             });
-            alert.present();
+            alert_2.present();
         }
         else {
-            var confirm = this.alertCtrl.create({
+            var confirm_3 = this.alertCtrl.create({
                 title: 'Desea continuar?',
                 message: 'Al cerrar la venta no podrás agregar o quitar productos',
                 buttons: [
@@ -1293,7 +1312,7 @@ var VentaPage = /** @class */ (function () {
                     }
                 ]
             });
-            confirm.present();
+            confirm_3.present();
         }
     };
     VentaPage.prototype.calcular = function () {
@@ -1310,14 +1329,23 @@ var VentaPage = /** @class */ (function () {
         mywindow.close();
         return true;
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('focus'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
+    ], VentaPage.prototype, "elementRef", void 0);
     VentaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-venta',template:/*ion-inline-start:"C:\Proyectos\inventariocliente\src\pages\venta\venta.html"*/'<ion-content>\n\n  <div class="w3-container ">\n    <h2>Comprobante # {{factura.id}}</h2>\n    <hr>\n  </div>\n\n  <div class="w3-row">\n    <div class="w3-col l12 w3-border w3-padding" style="text-align: center">\n      <h1>Total: ${{total}}</h1>\n    </div>\n  </div>\n\n  <div class="w3-row w3-border">\n    <div class="w3-col l3 w3-padding">\n\n      <select class="w3-select w3-border w3-round w3-white w3-xlarge" [(ngModel)]="cliente" (change)="cambiarCliente()">\n        <option value="1">Venta</option>\n        <option value="2">Consumo interno</option>\n      </select>\n\n\n    </div>\n\n    <div class="w3-col l3  w3-padding">\n      <button class="w3-large" ion-button icon-left block (click)="buscar()">\n        <ion-icon name="search"></ion-icon>\n        Buscar producto por nombre\n      </button>\n\n\n\n\n    </div>\n\n    <div class="w3-col l3  w3-padding">\n      <button class="w3-large" ion-button icon-left full (click)="comprobante()">\n        <ion-icon name="ios-print-outline"></ion-icon>\n        Cobrar e imprimir\n      </button>\n\n      <button class="w3-large" ion-button icon-left full color="secondary" (click)="sincomprobante()">\n        <ion-icon name="ios-remove-circle-outline"></ion-icon>\n        Cobrar y no imprimir\n      </button>\n\n\n\n\n\n    </div>\n\n    <div class="w3-col l3  w3-padding">\n      <label class="w3-text-blue w3-large">\n        <b>Dinero recibido</b>\n      </label>\n      <input class="w3-input w3-border w3-round w3-xlarge" placeholder="Dinero recibido" type="number" [(ngModel)]="recibido" (input)="calcular()">\n\n      <label class="w3-text-blue w3-large">\n        <b>Vuelto</b>\n      </label>\n      <input class="w3-input w3-border w3-round w3-xlarge" placeholder="Vuelto" type="number" value="0.00" [(ngModel)]="vuelto">\n\n\n\n    </div>\n\n\n\n  </div>\n\n\n  <div class="w3-row w3-border ">\n    <div class="w3-col l3 w3-padding"></div>\n    <div class="w3-col l6  w3-padding " style="text-align: center">\n      <form id="container2" *ngIf="form" [formGroup]="form" (ngSubmit)="buscarCodigo()">\n        <div class="w3-row">\n          <div class="w3-col l11">\n            <input id="focusInput" class="w3-input w3-border w3-round w3-xlarge" autofocus formControlName="name" placeholder="Ingresar código de barras" type="text">\n\n          </div>\n          <div class="w3-col l1">\n              <button class="w3-button w3-blue w3-large">\n                  <ion-icon name="search"></ion-icon>\n              \n                </button>\n          </div>\n        </div>\n\n      </form>\n\n    </div>\n\n    <div class="w3-col l3"></div>\n\n\n  </div>\n  <br>\n\n\n\n\n  <table class="w3-table w3-striped w3-bordered  w3-round w3-large">\n    <tr class="w3-dark-gray">\n      <th>Cantidad</th>\n      <th>Código</th>\n      <th>Producto</th>\n      <th>Unidad</th>\n      <th>Unitario</th>\n      <th>Total</th>\n      <th>Acciones</th>\n      <th class="w3-blue">Stock</th>\n    </tr>\n    <tr *ngFor="let detalle of detalles">\n      <td>{{detalle.cantidad}}</td>\n      <td>{{detalle.codigo}}</td>\n      <td>{{detalle.producto}}</td>\n      <td>{{detalle.unidad}}</td>\n      <td>${{detalle.unitario}}</td>\n      <td>${{detalle.total}}</td>\n      <td>\n\n        <button ion-button small icon-only color="danger" (click)="borrarDetalle(detalle.id)" round>\n          <ion-icon name="md-trash"></ion-icon>\n        </button>\n      </td>\n\n      <td>{{detalle.stock}}</td>\n    </tr>\n  </table>\n\n\n\n\n  <!-- align to the bottom of the page -->\n  <!-- <div style="position: absolute; bottom: 0px; width: 100%">\n          <div style="text-align: center">\n            <p>Bottom</p>\n          </div>\n      </div> -->\n\n\n\n\n</ion-content>\n\n<div style="visibility: hidden" id="boleta2" style=" border: 1; font-size: 8; border-color: black">\n\n\n  <h1>COMERCIAL HERAS</h1>\n  <h2>Ventas al por mayor y menor</h2>\n  <h2>\n    <strong>Comprebante:</strong> # {{factura.id}}</h2>\n  <h2>Fecha: {{fecha}}</h2>\n\n\n  <hr>\n\n\n\n\n  <table style="width: 100%">\n    <tr>\n      <th style="text-align: center; padding: 2px">\n        <h1>Cant.</h1>\n      </th>\n      <th style="text-align: center; padding: 2px">\n        <h1>Producto</h1>\n      </th>\n      <th style="text-align: center; padding: 2px">\n        <h1>Unit.</h1>\n      </th>\n      <th style="text-align: center; padding: 2px">\n        <h1>Total</h1>\n      </th>\n\n    </tr>\n\n    <tr *ngFor="let detalle of detalles">\n      <td style="text-align: center; padding: 2px">\n        <h2>{{detalle.cantidad}}</h2>\n      </td>\n      <td style="text-align: left; padding: 2px;">\n        <h2>{{detalle.producto}}</h2>\n      </td>\n      <td style="text-align: center; padding: 2px">\n        <h2>${{detalle.unitario}}</h2>\n      </td>\n      <td style="text-align: center; padding: 2px">\n        <h2>${{detalle.total}}</h2>\n      </td>\n\n\n    </tr>\n\n\n  </table>\n  <hr>\n\n\n  <div style="text-align: right">\n    <h1>TOTAL: ${{total}}</h1>\n  </div>\n  <hr>\n  <h2 style="text-align: center">***ES UN PLACER SERVIRLE***</h2>\n  <h4 style="text-align: center">Este comprobante no tiene validez tributaria</h4>\n\n\n\n</div>\n\n\n<script>\n\n  alert(\'hola\')\n\n  function saludar() {\n    alert(saludar);\n  }\n  function PrintElem(elem) {\n    var mywindow = window.open(\'\', \'PRINT\', \'height=400,width=600\');\n\n    mywindow.document.write(\'<html><head><title>\' + document.title + \'</title>\');\n    mywindow.document.write(\'</head><body >\');\n    mywindow.document.write(\'<h1>\' + document.title + \'</h1>\');\n    mywindow.document.write(document.getElementById(elem).innerHTML);\n    mywindow.document.write(\'</body></html>\');\n\n    mywindow.document.close(); // necessary for IE >= 10\n    mywindow.focus(); // necessary for IE >= 10*/\n\n    mywindow.print();\n    mywindow.close();\n\n    return true;\n  }\n\n</script>'/*ion-inline-end:"C:\Proyectos\inventariocliente\src\pages\venta\venta.html"*/,
+            selector: 'page-venta',template:/*ion-inline-start:"C:\Proyectos\herasclient2\src\pages\venta\venta.html"*/'<ion-content>\n\n\n\n  <div class="w3-container ">\n\n    <h2>Comprobante # {{factura.id}}</h2>\n\n    <hr>\n\n  </div>\n\n\n\n  <div class="w3-row">\n\n    <div class="w3-col l12 w3-border w3-padding" style="text-align: center">\n\n      <h1>Total: ${{total}}</h1>\n\n    </div>\n\n  </div>\n\n\n\n  <div class="w3-row w3-border">\n\n    <div class="w3-col l3 w3-padding">\n\n\n\n      <select class="w3-select w3-border w3-round w3-white w3-xlarge" [(ngModel)]="cliente" (change)="cambiarCliente()">\n\n        <option value="1">Venta</option>\n\n        <option value="2">Consumo interno</option>\n\n      </select>\n\n\n\n\n\n    </div>\n\n\n\n    <div class="w3-col l3  w3-padding">\n\n      <button class="w3-large" ion-button icon-left block (click)="buscar()">\n\n        <ion-icon name="search"></ion-icon>\n\n        Buscar por nombre\n\n      </button>\n\n\n\n\n\n\n\n\n\n    </div>\n\n\n\n    <div class="w3-col l3  w3-padding">\n\n      <button class="w3-large" ion-button icon-left full (click)="comprobante()">\n\n        <ion-icon name="ios-print-outline"></ion-icon>\n\n        Cobrar e imprimir\n\n      </button>\n\n\n\n      <button class="w3-large" ion-button icon-left full color="secondary" (click)="sincomprobante()">\n\n        <ion-icon name="ios-remove-circle-outline"></ion-icon>\n\n        Cobrar y no imprimir\n\n      </button>\n\n\n\n\n\n\n\n\n\n\n\n    </div>\n\n\n\n    <div class="w3-col l3  w3-padding">\n\n      <label class="w3-text-blue w3-large">\n\n        <b>Dinero recibido</b>\n\n      </label>\n\n      <input class="w3-input w3-border w3-round w3-xlarge" placeholder="Dinero recibido" type="number" [(ngModel)]="recibido" (input)="calcular()">\n\n\n\n      <label class="w3-text-blue w3-large">\n\n        <b>Vuelto</b>\n\n      </label>\n\n      <input class="w3-input w3-border w3-round w3-xlarge" placeholder="Vuelto" type="number" value="0.00" [(ngModel)]="vuelto">\n\n\n\n\n\n\n\n    </div>\n\n\n\n\n\n\n\n  </div>\n\n\n\n\n\n  <div class="w3-row w3-border ">\n\n    <div class="w3-col l3 w3-padding"></div>\n\n    <div class="w3-col l6  w3-padding " style="text-align: center">\n\n      <form id="container2" *ngIf="form" [formGroup]="form" (ngSubmit)="buscarCodigo()">\n\n        <div class="w3-row">\n\n          <div class="w3-col l11">\n\n            <input #focus  class="w3-input w3-border w3-round w3-xlarge" autofocus formControlName="name" placeholder="Ingresar código de barras" type="text" >\n\n\n\n          </div>\n\n          <div class="w3-col l1">\n\n              <button class="w3-button w3-blue w3-large">\n\n                  <ion-icon name="search"></ion-icon>\n\n              \n\n                </button>\n\n          </div>\n\n        </div>\n\n\n\n      </form>\n\n\n\n    </div>\n\n\n\n    <div class="w3-col l3"></div>\n\n\n\n\n\n  </div>\n\n  <br>\n\n\n\n\n\n\n\n\n\n  <table class="w3-table w3-striped w3-bordered  w3-round w3-large">\n\n    <tr class="w3-dark-gray">\n\n      <th>Cantidad</th>\n\n      <th>Código</th>\n\n      <th>Producto</th>\n\n      <th>Unidad</th>\n\n      <th>Unitario</th>\n\n      <th>Total</th>\n\n      <th>Acciones</th>\n\n      <th class="w3-blue">Stock</th>\n\n    </tr>\n\n    <tr *ngFor="let detalle of detalles">\n\n      <td>{{detalle.cantidad}}</td>\n\n      <td>{{detalle.codigo}}</td>\n\n      <td>{{detalle.producto}}</td>\n\n      <td>{{detalle.unidad}}</td>\n\n      <td>${{(detalle.unitario).toFixed(2)}}</td>\n\n      <td>${{(detalle.total)}}</td>\n\n      <td>\n\n\n\n        <button ion-button small icon-only color="danger" (click)="borrarDetalle(detalle.id)" round>\n\n          <ion-icon name="md-trash"></ion-icon>\n\n        </button>\n\n      </td>\n\n\n\n      <td>{{(detalle.stock)}}</td>\n\n    </tr>\n\n  </table>\n\n\n\n\n\n\n\n\n\n  <!-- align to the bottom of the page -->\n\n  <!-- <div style="position: absolute; bottom: 0px; width: 100%">\n\n          <div style="text-align: center">\n\n            <p>Bottom</p>\n\n          </div>\n\n      </div> -->\n\n\n\n\n\n\n\n\n\n</ion-content>\n\n\n\n<div style="visibility: hidden" id="boleta2" style=" border: 1; font-size: 8; border-color: black">\n\n\n\n\n\n  <h1>COMERCIAL HERAS</h1>\n\n  <h2>Ventas al por mayor y menor</h2>\n\n  <h2>\n\n    <strong>Comprebante:</strong> # {{factura.id}}</h2>\n\n  <h2>Fecha: {{fecha}}</h2>\n\n\n\n\n\n  <hr>\n\n\n\n\n\n\n\n\n\n  <table style="width: 100%">\n\n    <tr>\n\n      <th style="text-align: center; padding: 2px">\n\n        <h1>Cant.</h1>\n\n      </th>\n\n      <th style="text-align: center; padding: 2px">\n\n        <h1>Producto</h1>\n\n      </th>\n\n      <th style="text-align: center; padding: 2px">\n\n        <h1>Unit.</h1>\n\n      </th>\n\n      <th style="text-align: center; padding: 2px">\n\n        <h1>Total</h1>\n\n      </th>\n\n\n\n    </tr>\n\n\n\n    <tr *ngFor="let detalle of detalles">\n\n      <td style="text-align: center; padding: 2px">\n\n        <h2>{{detalle.cantidad}}</h2>\n\n      </td>\n\n      <td style="text-align: left; padding: 2px;">\n\n        <h2>{{detalle.producto}}</h2>\n\n      </td>\n\n      <td style="text-align: center; padding: 2px">\n\n        <h2>${{detalle.unitario}}</h2>\n\n      </td>\n\n      <td style="text-align: center; padding: 2px">\n\n        <h2>${{detalle.total}}</h2>\n\n      </td>\n\n\n\n\n\n    </tr>\n\n\n\n\n\n  </table>\n\n  <hr>\n\n\n\n\n\n  <div style="text-align: right">\n\n    <h1>TOTAL: ${{total}}</h1>\n\n  </div>\n\n  <hr>\n\n  <h2 style="text-align: center">***ES UN PLACER SERVIRLE***</h2>\n\n  <h4 style="text-align: center">Este comprobante no tiene validez tributaria</h4>\n\n\n\n\n\n\n\n</div>\n\n\n\n\n\n<script>\n\n\n\n  alert(\'hola\')\n\n\n\n  function saludar() {\n\n    alert(saludar);\n\n  }\n\n  function PrintElem(elem) {\n\n    var mywindow = window.open(\'\', \'PRINT\', \'height=400,width=600\');\n\n\n\n    mywindow.document.write(\'<html><head><title>\' + document.title + \'</title>\');\n\n    mywindow.document.write(\'</head><body >\');\n\n    mywindow.document.write(\'<h1>\' + document.title + \'</h1>\');\n\n    mywindow.document.write(document.getElementById(elem).innerHTML);\n\n    mywindow.document.write(\'</body></html>\');\n\n\n\n    mywindow.document.close(); // necessary for IE >= 10\n\n    mywindow.focus(); // necessary for IE >= 10*/\n\n\n\n    mywindow.print();\n\n    mywindow.close();\n\n\n\n    return true;\n\n  }\n\n\n\n</script>'/*ion-inline-end:"C:\Proyectos\herasclient2\src\pages\venta\venta.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_servicio_servicio__["a" /* ServicioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_servicio_servicio__["a" /* ServicioProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__providers_usuario_usuario__["a" /* UsuarioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_usuario_usuario__["a" /* UsuarioProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_servicio_servicio__["a" /* ServicioProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_usuario_usuario__["a" /* UsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], VentaPage);
     return VentaPage;
-    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=venta.js.map
@@ -1358,35 +1386,35 @@ var map = {
 		8
 	],
 	"../pages/consulta/consulta.module": [
-		290,
+		297,
 		7
 	],
 	"../pages/historial/historial.module": [
-		291,
+		290,
 		6
 	],
 	"../pages/iniciarventa/iniciarventa.module": [
-		292,
+		291,
 		5
 	],
 	"../pages/login/login.module": [
-		293,
+		292,
 		4
 	],
 	"../pages/modificarproducto/modificarproducto.module": [
-		294,
+		293,
 		3
 	],
 	"../pages/nuevoproducto/nuevoproducto.module": [
-		295,
+		294,
 		0
 	],
 	"../pages/preciosproducto/preciosproducto.module": [
-		296,
+		295,
 		2
 	],
 	"../pages/venta/venta.module": [
-		297,
+		296,
 		1
 	]
 };
@@ -1413,11 +1441,11 @@ module.exports = webpackAsyncContext;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_consulta_consulta__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_consulta_consulta__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_venta_venta__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__historial_historial__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_usuario_usuario__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__iniciarventa_iniciarventa__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__historial_historial__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_usuario_usuario__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__iniciarventa_iniciarventa__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__login_login__ = __webpack_require__(52);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1471,7 +1499,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Proyectos\inventariocliente\src\pages\home\home.html"*/'<!-- <ion-header>\n\n    <ion-navbar>\n      <ion-title>Inventario Heras - {{usuarioLogueado.id.nombre}}</ion-title>\n    </ion-navbar>\n  \n  </ion-header> -->\n\n  <ion-header>\n      <ion-navbar>\n          <ion-title>Inventario Heras</ion-title>\n        <ion-buttons start>\n          <button ion-button icon-left (click)="cerrarSesion()">\n            <ion-icon name="contact"></ion-icon>\n            {{usuarioLogueado.id.nombre}}\n          </button>\n        </ion-buttons>\n    \n      \n      </ion-navbar>\n    </ion-header>\n\n\n\n<ion-content >\n\n  <ion-tabs color="primary">\n    <ion-tab [root]="consulta" tabTitle="Inicio" tabIcon="ios-home"></ion-tab>\n    <ion-tab [root]="venta" tabTitle="Venta 1" tabIcon="ios-cart"></ion-tab>\n    <ion-tab [root]="venta" tabTitle="Venta 2" tabIcon="ios-cart"></ion-tab>\n\n    <div  >\n    <ion-tab [class.oculto]=" usuarioLogueado.id.rol==\'usuario\' "  [root]="historial" tabTitle="Historial" tabIcon="ios-document-outline"></ion-tab>\n    </div>\n    \n\n  </ion-tabs>\n</ion-content>'/*ion-inline-end:"C:\Proyectos\inventariocliente\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Proyectos\herasclient2\src\pages\home\home.html"*/'<!-- <ion-header>\n\n\n\n    <ion-navbar>\n\n      <ion-title>Inventario Heras - {{usuarioLogueado.id.nombre}}</ion-title>\n\n    </ion-navbar>\n\n  \n\n  </ion-header> -->\n\n\n\n  <ion-header>\n\n      <ion-navbar>\n\n          <ion-title>Inventario Heras</ion-title>\n\n        <ion-buttons start>\n\n          <button ion-button icon-left (click)="cerrarSesion()">\n\n            <ion-icon name="contact"></ion-icon>\n\n            {{usuarioLogueado.id.nombre}}\n\n          </button>\n\n        </ion-buttons>\n\n    \n\n      \n\n      </ion-navbar>\n\n    </ion-header>\n\n\n\n\n\n\n\n<ion-content >\n\n\n\n  <ion-tabs color="primary">\n\n\n\n      <ion-tab [root]="venta" tabTitle="Venta 1" tabIcon="ios-cart"></ion-tab>\n\n      <ion-tab [root]="venta" tabTitle="Venta 2" tabIcon="ios-cart"></ion-tab>\n\n    <ion-tab [root]="consulta" tabTitle="Consulta" tabIcon="ios-home"></ion-tab>\n\n    \n\n\n\n    <div  >\n\n    <ion-tab [class.oculto]=" usuarioLogueado.id.rol==\'usuario\' "  [root]="historial" tabTitle="Historial" tabIcon="ios-document-outline"></ion-tab>\n\n    </div>\n\n    \n\n\n\n  </ion-tabs>\n\n</ion-content>'/*ion-inline-end:"C:\Proyectos\herasclient2\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_5__providers_usuario_usuario__["a" /* UsuarioProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], HomePage);
@@ -1506,7 +1534,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ServicioProvider = /** @class */ (function () {
     function ServicioProvider(http) {
         this.http = http;
-        this.url = 'http://localhost:1337';
+        this.url = '';
     }
     ServicioProvider.prototype.get = function (endpoint, params, reqOpts) {
         if (!reqOpts) {
@@ -1537,9 +1565,10 @@ var ServicioProvider = /** @class */ (function () {
     };
     ServicioProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
     ], ServicioProvider);
     return ServicioProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=servicio.js.map
@@ -1573,18 +1602,18 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(209);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(286);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_consulta_consulta__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_consulta_consulta__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_venta_venta__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_agregarstock_agregarstock__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_modificarproducto_modificarproducto__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_modificarproducto_modificarproducto__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_servicio_servicio__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_preciosproducto_preciosproducto__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_preciosproducto_preciosproducto__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_cantidad_cantidad__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_buscarproducto_buscarproducto__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_historial_historial__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_historial_historial__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_login_login__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_usuario_usuario__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_iniciarventa_iniciarventa__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_usuario_usuario__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_iniciarventa_iniciarventa__ = __webpack_require__(107);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1637,14 +1666,14 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/agregarstock/agregarstock.module#AgregarstockPageModule', name: 'AgregarstockPage', segment: 'agregarstock', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/buscarproducto/buscarproducto.module#BuscarproductoPageModule', name: 'BuscarproductoPage', segment: 'buscarproducto', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cantidad/cantidad.module#CantidadPageModule', name: 'CantidadPage', segment: 'cantidad', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/consulta/consulta.module#ConsultaPageModule', name: 'ConsultaPage', segment: 'consulta', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/historial/historial.module#HistorialPageModule', name: 'HistorialPage', segment: 'historial', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/iniciarventa/iniciarventa.module#IniciarventaPageModule', name: 'IniciarventaPage', segment: 'iniciarventa', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/modificarproducto/modificarproducto.module#ModificarproductoPageModule', name: 'ModificarproductoPage', segment: 'modificarproducto', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nuevoproducto/nuevoproducto.module#NuevoproductoPageModule', name: 'NuevoproductoPage', segment: 'nuevoproducto', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/preciosproducto/preciosproducto.module#PreciosproductoPageModule', name: 'PreciosproductoPage', segment: 'preciosproducto', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/venta/venta.module#VentaPageModule', name: 'VentaPage', segment: 'venta', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/venta/venta.module#VentaPageModule', name: 'VentaPage', segment: 'venta', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/consulta/consulta.module#ConsultaPageModule', name: 'ConsultaPage', segment: 'consulta', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["b" /* HttpClientModule */]
@@ -1715,7 +1744,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Proyectos\inventariocliente\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"C:\Proyectos\inventariocliente\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Proyectos\herasclient2\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Proyectos\herasclient2\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -1726,7 +1755,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 42:
+/***/ 34:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1778,7 +1807,7 @@ var UsuarioProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicio_servicio__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_usuario_usuario__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_usuario_usuario__ = __webpack_require__(34);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1826,7 +1855,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Proyectos\inventariocliente\src\pages\login\login.html"*/'<ion-content padding class="animated fadeIn login auth-page">\n\n    <ion-grid>\n      <ion-row>\n        <ion-col col-0 col-sm-0 col-xs-0 col-md-0 col-lg-4 col-xl-4></ion-col>\n        <ion-col col-12 col-sm-12 col-xs-12 col-md-12 col-lg-4 col-xl-4>\n          <div class="login-content w3-card-4 w3-white w3-round-large  w3-padding w3-border-blue">\n  \n            <!-- Logo -->\n            <div padding-horizontal text-center class="animated fadeInDown">\n              <img src="assets/imgs/logo.jpg" alt="">\n              <br>\n              <br>\n              <h2 ion-text class="text-primary">\n                <strong>Sistema de inventario HERAS</strong>\n              </h2>\n            </div>\n            <br>\n            <br>\n            <form class="w3-container" (submit)="doLogin()">\n  \n              <label class="w3-text-blue">\n                <b>Nombre de usuario</b>\n              </label>\n              <input autofocus placeholder="Ingrese su nombre de usuario" [(ngModel)]="account.nombre" name="email" class="w3-input w3-border w3-large w3-round"\n                type="text">\n              <br>\n              <label class="w3-text-blue">\n                <b>Contraseña</b>\n              </label>\n              <input placeholder="Ingrese su contraseña " [(ngModel)]="account.contrasena" name="password" class="w3-input w3-border w3-large w3-round"\n                type="password">\n              <br>\n              <button class="w3-btn w3-blue w3-round w3-large">Iniciar sesión</button>\n  \n              <br>\n              <br>\n  \n            </form>\n  \n  \n  \n  \n  \n  \n  \n          </div>\n        </ion-col>\n        <ion-col col-0 col-sm-0 col-xs-0 col-md-0 col-lg-4 col-xl-4></ion-col>\n      </ion-row>\n    </ion-grid>\n  \n  \n    <!-- <ion-grid>\n      <ion-row>\n        <ion-col col-4>\n  \n        </ion-col>\n  \n        <ion-col col-4>\n            <form (submit)="doLogin()">\n                <ion-list>\n                    <br><br><br>\n                  <img src="assets/img/logo0.jpg" alt="">\n                  <br><br><br>\n                  <ion-item>\n                    <ion-label floating>Nombre de usuario</ion-label>\n                    <ion-input type="text" [(ngModel)]="account.nombre" name="email"></ion-input>\n                  </ion-item>\n            \n            \n                  <ion-item>\n                    <ion-label floating>Contraseña</ion-label>\n                    <ion-input type="password" [(ngModel)]="account.contrasena" name="password"></ion-input>\n                  </ion-item>\n            \n                  <div padding>\n                    <button ion-button color="primary" block>{{ \'LOGIN_BUTTON\' | translate }}</button>\n                  </div>\n            \n                </ion-list>\n              </form>\n        </ion-col>\n  \n        <ion-col col-4>\n  \n        </ion-col>\n      </ion-row>\n    </ion-grid> -->\n  \n  </ion-content>'/*ion-inline-end:"C:\Proyectos\inventariocliente\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Proyectos\herasclient2\src\pages\login\login.html"*/'<ion-content padding class="animated fadeIn login auth-page">\n\n\n\n    <ion-grid>\n\n      <ion-row>\n\n        <ion-col col-0 col-sm-0 col-xs-0 col-md-0 col-lg-4 col-xl-4></ion-col>\n\n        <ion-col col-12 col-sm-12 col-xs-12 col-md-12 col-lg-4 col-xl-4>\n\n          <div class="login-content w3-card-4 w3-white w3-round-large  w3-padding w3-border-blue">\n\n  \n\n            <!-- Logo -->\n\n            <div padding-horizontal text-center class="animated fadeInDown">\n\n              <img src="assets/imgs/logo.jpg" alt="">\n\n              <br>\n\n              <br>\n\n              <h2 ion-text class="text-primary">\n\n                <strong>Sistema de inventario HERAS</strong>\n\n              </h2>\n\n            </div>\n\n            <br>\n\n            <br>\n\n            <form class="w3-container" (submit)="doLogin()">\n\n  \n\n              <label class="w3-text-blue">\n\n                <b>Nombre de usuario</b>\n\n              </label>\n\n              <input autofocus placeholder="Ingrese su nombre de usuario" [(ngModel)]="account.nombre" name="email" class="w3-input w3-border w3-large w3-round"\n\n                type="text">\n\n              <br>\n\n              <label class="w3-text-blue">\n\n                <b>Contraseña</b>\n\n              </label>\n\n              <input placeholder="Ingrese su contraseña " [(ngModel)]="account.contrasena" name="password" class="w3-input w3-border w3-large w3-round"\n\n                type="password">\n\n              <br>\n\n              <button class="w3-btn w3-blue w3-round w3-large">Iniciar sesión</button>\n\n  \n\n              <br>\n\n              <br>\n\n  \n\n            </form>\n\n  \n\n  \n\n  \n\n  \n\n  \n\n  \n\n  \n\n          </div>\n\n        </ion-col>\n\n        <ion-col col-0 col-sm-0 col-xs-0 col-md-0 col-lg-4 col-xl-4></ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  \n\n  \n\n    <!-- <ion-grid>\n\n      <ion-row>\n\n        <ion-col col-4>\n\n  \n\n        </ion-col>\n\n  \n\n        <ion-col col-4>\n\n            <form (submit)="doLogin()">\n\n                <ion-list>\n\n                    <br><br><br>\n\n                  <img src="assets/img/logo0.jpg" alt="">\n\n                  <br><br><br>\n\n                  <ion-item>\n\n                    <ion-label floating>Nombre de usuario</ion-label>\n\n                    <ion-input type="text" [(ngModel)]="account.nombre" name="email"></ion-input>\n\n                  </ion-item>\n\n            \n\n            \n\n                  <ion-item>\n\n                    <ion-label floating>Contraseña</ion-label>\n\n                    <ion-input type="password" [(ngModel)]="account.contrasena" name="password"></ion-input>\n\n                  </ion-item>\n\n            \n\n                  <div padding>\n\n                    <button ion-button color="primary" block>{{ \'LOGIN_BUTTON\' | translate }}</button>\n\n                  </div>\n\n            \n\n                </ion-list>\n\n              </form>\n\n        </ion-col>\n\n  \n\n        <ion-col col-4>\n\n  \n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid> -->\n\n  \n\n  </ion-content>'/*ion-inline-end:"C:\Proyectos\herasclient2\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
